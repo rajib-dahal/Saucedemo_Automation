@@ -1,8 +1,15 @@
+import Utils from "../support/utils/utils"
+const utility =new Utils()
+
 class AddToCart {
     element = {
         allAddRemoveButtons: 'button.btn_inventory',
         cartBadgeIcon: '.shopping_cart_badge',
-        addToCartButton:'#add-to-cart-sauce-labs-backpack'
+        addToCartButton:'#add-to-cart-sauce-labs-backpack',
+        productId:'#item_4_title_link',
+        productPageUrl:'https://www.saucedemo.com/inventory-item.html?id=4',
+        productPageAddToCartButton:'#add-to-cart',
+        pageCartIcon:'.shopping_cart_link .shopping_cart_badge'
     }
 
     clickAddToCartButton() {
@@ -48,6 +55,13 @@ class AddToCart {
             });
 
         return this;
+    }
+
+    addToCartProductPage(){
+        cy.get(this.element.productId).should('be.visible').click()
+        utility.assertUrl(this.element.productPageUrl)
+        cy.get(this.element.productPageAddToCartButton).should('be.visible').click()
+        cy.get(this.element.pageCartIcon).should('be.visible').and('contain.text',1)
     }
 }
 

@@ -6,9 +6,12 @@ const loginData= new Login()
 const logoutData= new Logout()
 const utility =new Utils()
 
+beforeEach(() => {
+  cy.login()
+})
+
 describe('Logout', () => {
   it('TC-LOGOUT-001: To verify user can logout', () => {
-    loginData.login()
     logoutData.logout()
     utility.assertUrl('https://www.saucedemo.com/')
 

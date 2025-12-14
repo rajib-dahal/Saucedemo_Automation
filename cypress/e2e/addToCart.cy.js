@@ -4,21 +4,26 @@ import AddToCart from "../pages/addToCart"
 
 const loginData= new Login()
 const utility =new Utils()
-const cartData=new AddToCart()
+const addToCartData=new AddToCart()
+beforeEach(() => {
+  cy.login()
+})
 
-describe('LOGIN', () => {
+describe('ADD_TO_CART', () => {
   it('TC-ADDTOCART-001: To verify add to cart button is working', () => {
-    loginData.login();
-    cartData.clickAddToCartButton();
+
+    addToCartData.clickAddToCartButton();
     utility.assertElementText('#remove-sauce-labs-backpack', 'Remove');
 });
 
   it('TC-ADDTOCART-001: To verify cart icon is updated after item is added to cart', () => {
-    loginData.login()
-    cartData.updateCart()
-    
-
+    addToCartData.updateCart()
   })
+
+  it('TC-ADDTOCART-001: To verify user can add product from product page', () => {
+    addToCartData.addToCartProductPage()
+  })
+
 
 
 })

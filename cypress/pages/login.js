@@ -1,3 +1,6 @@
+import Utils from "../support/utils/utils"
+const utility =new Utils()
+
 class Login{
     element={
         loginUsernameInput:'#user-name',
@@ -26,6 +29,7 @@ class Login{
         this.typeLoginUsername()
         this.typeLoginPassword()
         this.clickLoginButton()
+        utility.assertUrl('https://www.saucedemo.com/inventory.html')
     }
 
     

@@ -1,0 +1,143 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-12-13T15:27:18.426Z",
+    "end": "2025-12-13T15:27:27.973Z",
+    "duration": 9547,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "59f3bf62-d3c1-44e7-9cfe-81e99d2b3eb8",
+      "title": "",
+      "fullFile": "cypress\\e2e\\addToCart.cy.js",
+      "file": "cypress\\e2e\\addToCart.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "97b71d86-c636-4244-8a8d-308aa419a38a",
+          "title": "ADD_TO_CART",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "TC-ADDTOCART-001: To verify add to cart button is working",
+              "fullTitle": "ADD_TO_CART TC-ADDTOCART-001: To verify add to cart button is working",
+              "timedOut": null,
+              "duration": 4083,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "addToCartData.clickAddToCartButton();\nutility.assertElementText('#remove-sauce-labs-backpack', 'Remove');",
+              "err": {},
+              "uuid": "a1cc7959-08ae-4fbf-9051-5d26c94fc86c",
+              "parentUUID": "97b71d86-c636-4244-8a8d-308aa419a38a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC-ADDTOCART-001: To verify cart icon is updated after item is added to cart",
+              "fullTitle": "ADD_TO_CART TC-ADDTOCART-001: To verify cart icon is updated after item is added to cart",
+              "timedOut": null,
+              "duration": 2946,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "addToCartData.updateCart();",
+              "err": {},
+              "uuid": "847735a0-0b07-4db5-8b90-e5ec29eebff7",
+              "parentUUID": "97b71d86-c636-4244-8a8d-308aa419a38a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC-ADDTOCART-001: To verify user can add product from product page",
+              "fullTitle": "ADD_TO_CART TC-ADDTOCART-001: To verify user can add product from product page",
+              "timedOut": null,
+              "duration": 2182,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "addToCartData.addToCartProductPage();",
+              "err": {},
+              "uuid": "5e9bf038-4b45-4020-9d70-54641a729ddd",
+              "parentUUID": "97b71d86-c636-4244-8a8d-308aa419a38a",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "a1cc7959-08ae-4fbf-9051-5d26c94fc86c",
+            "847735a0-0b07-4db5-8b90-e5ec29eebff7",
+            "5e9bf038-4b45-4020-9d70-54641a729ddd"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 9211,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome-report",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

@@ -4,11 +4,12 @@ import Utils from "../support/utils/utils"
 const loginData= new Login()
 const utility =new Utils()
 
+
+
+
 describe('LOGIN', () => {
   it('TC-LOGIN-001: To verify user can login with valid credentials', () => {
     loginData.login()
-    utility.assertUrl('https://www.saucedemo.com/inventory.html')
-
   })
 
   it('TC-LOGIN-002: To verify user can login with only username', () => {
