@@ -1,0 +1,6 @@
+node_modules/\
+.env.production
+.env.staging
+cypress/videos/
+cypress/screenshots/
+reports/
