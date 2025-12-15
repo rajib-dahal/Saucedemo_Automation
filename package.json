@@ -1,5 +1,6 @@
 {
   "devDependencies": {
+    "@faker-js/faker": "^10.1.0",
     "cypress": "^15.7.1",
     "dotenv": "^17.2.3",
     "mocha": "^11.7.5",
@@ -234,13 +235,12 @@
     "yocto-queue": "^0.1.0"
   },
   "scripts": {
-  "cy:run": "npx cypress run",
- "cleanup:reports": "if exist cypress\\reports rmdir /s /q cypress\\reports",
-  "merge:reports": "npx mochawesome-merge cypress/reports/mochawesome-report/*.json -o cypress/reports/report.json",
-  "generate:report": "npx marge cypress/reports/report.json -f final-report -o cypress/reports",
- "report:all": "npm run cleanup:reports && npm run cy:run && npm run merge:reports && npm run generate:report"
-},
-
+    "cy:run": "npx cypress run",
+    "cleanup:reports": "if exist cypress\\reports rmdir /s /q cypress\\reports",
+    "merge:reports": "npx mochawesome-merge cypress/reports/mochawesome-report/*.json -o cypress/reports/report.json",
+    "generate:report": "npx marge cypress/reports/report.json -f final-report -o cypress/reports",
+    "report:all": "npm run cleanup:reports && npm run cy:run && npm run merge:reports && npm run generate:report"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/harryBro26/Internship-Automation.git"
@@ -253,10 +253,4 @@
     "url": "https://github.com/harryBro26/Internship-Automation/issues"
   },
   "homepage": "https://github.com/harryBro26/Internship-Automation#readme"
-
-  
-  
 }
-
-
-

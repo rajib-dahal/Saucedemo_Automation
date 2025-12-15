@@ -1,0 +1,124 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-12-15T04:28:50.690Z",
+    "end": "2025-12-15T04:28:54.733Z",
+    "duration": 4043,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "af7616b2-f7f9-4324-88ec-60a14c32216a",
+      "title": "",
+      "fullFile": "cypress\\e2e\\checkout.cy.js",
+      "file": "cypress\\e2e\\checkout.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "b2d37bd9-b0dc-4a78-a627-39ca842f18cd",
+          "title": "CHECKOUT",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "TC-CHECKOUT-001: To verify checkout button is working",
+              "fullTitle": "CHECKOUT TC-CHECKOUT-001: To verify checkout button is working",
+              "timedOut": null,
+              "duration": 1860,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "checkout.clickCheckoutButton();\nutility.assertUrl('https://www.saucedemo.com/checkout-step-one.html');",
+              "err": {},
+              "uuid": "d1a08454-54e3-4c07-b3b8-013fa27c46ab",
+              "parentUUID": "b2d37bd9-b0dc-4a78-a627-39ca842f18cd",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC-CHECKOUT-002: To verify user can checkout with vlaid information",
+              "fullTitle": "CHECKOUT TC-CHECKOUT-002: To verify user can checkout with vlaid information",
+              "timedOut": null,
+              "duration": 2104,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "checkout.clickCheckoutButton();\ncheckout.checkoutForm();",
+              "err": {},
+              "uuid": "31e0b441-578f-4e0b-94d7-ff2b90e1c31e",
+              "parentUUID": "b2d37bd9-b0dc-4a78-a627-39ca842f18cd",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "d1a08454-54e3-4c07-b3b8-013fa27c46ab",
+            "31e0b441-578f-4e0b-94d7-ff2b90e1c31e"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 3964,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome-report",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

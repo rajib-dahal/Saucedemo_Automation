@@ -4,9 +4,6 @@ import Utils from "../support/utils/utils"
 const loginData= new Login()
 const utility =new Utils()
 
-
-
-
 describe('LOGIN', () => {
   it('TC-LOGIN-001: To verify user can login with valid credentials', () => {
     loginData.login()

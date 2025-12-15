@@ -9,9 +9,8 @@ module.exports = defineConfig({
     env:{
       username:process.env.CYPRESS_USERNAME,
       password:process.env.CYPRESS_PASSWORD,
-
-      
-      
+      token: process.env.AUTHENTICATION_TOKEN,
+      API_URL: process.env.API_URL
     },
     
     setupNodeEvents(on, config) {
@@ -26,8 +25,6 @@ module.exports = defineConfig({
     "html": false,
     "json": true
     }
-    
-
   },
 });
 

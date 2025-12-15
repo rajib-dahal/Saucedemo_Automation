@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-12-14T05:22:59.356Z",
+    "end": "2025-12-14T05:23:01.621Z",
+    "duration": 2265,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "0e33191b-6384-4cab-b4dc-48fd405e2dcf",
+      "title": "",
+      "fullFile": "cypress\\e2e\\logout.cy.js",
+      "file": "cypress\\e2e\\logout.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "c9a128f0-0bff-44a5-bbf9-bb8a463a28ce",
+          "title": "Logout",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "TC-LOGOUT-001: To verify user can logout",
+              "fullTitle": "Logout TC-LOGOUT-001: To verify user can logout",
+              "timedOut": null,
+              "duration": 2196,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "logoutData.logout();\nutility.assertUrl('https://www.saucedemo.com/');",
+              "err": {},
+              "uuid": "d2cabd66-4225-4b6e-a367-1edb47c8e4d5",
+              "parentUUID": "c9a128f0-0bff-44a5-bbf9-bb8a463a28ce",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "d2cabd66-4225-4b6e-a367-1edb47c8e4d5"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2196,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome-report",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

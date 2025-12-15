@@ -1,0 +1,124 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-12-15T04:28:44.737Z",
+    "end": "2025-12-15T04:28:48.905Z",
+    "duration": 4168,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "5ec033a5-6187-4cf2-80ab-5c26441d54fa",
+      "title": "",
+      "fullFile": "cypress\\e2e\\cart.cy.js",
+      "file": "cypress\\e2e\\cart.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "7c854941-da25-4cd0-a302-a7cd37a63449",
+          "title": "CART",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "TC-CART-001: To verify item is removed from cart after clicking cancel button",
+              "fullTitle": "CART TC-CART-001: To verify item is removed from cart after clicking cancel button",
+              "timedOut": null,
+              "duration": 2647,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "addToCartData.clickAddToCartButton();\nutility.assertElementText('#remove-sauce-labs-backpack', 'Remove');\ncartData.clickCartIcon();\nutility.assertUrl('https://www.saucedemo.com/cart.html');\ncartData.clickCartRemoveButton();",
+              "err": {},
+              "uuid": "75baf553-6b4a-4ccf-b37d-42627f082f6d",
+              "parentUUID": "7c854941-da25-4cd0-a302-a7cd37a63449",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC-CART-001: To verify user is directed to home page after clicking continue shopping button",
+              "fullTitle": "CART TC-CART-001: To verify user is directed to home page after clicking continue shopping button",
+              "timedOut": null,
+              "duration": 1414,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "addToCartData.clickAddToCartButton();\nutility.assertElementText('#remove-sauce-labs-backpack', 'Remove');\ncartData.clickCartIcon();\nutility.assertUrl('https://www.saucedemo.com/cart.html');\ncartData.clickCartContinueButton();\nutility.assertUrl('https://www.saucedemo.com/inventory.html');",
+              "err": {},
+              "uuid": "91638672-e048-4085-8671-37f67957eea8",
+              "parentUUID": "7c854941-da25-4cd0-a302-a7cd37a63449",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "75baf553-6b4a-4ccf-b37d-42627f082f6d",
+            "91638672-e048-4085-8671-37f67957eea8"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 4061,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome-report",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

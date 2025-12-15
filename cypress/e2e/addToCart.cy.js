@@ -11,7 +11,6 @@ beforeEach(() => {
 
 describe('ADD_TO_CART', () => {
   it('TC-ADDTOCART-001: To verify add to cart button is working', () => {
-
     addToCartData.clickAddToCartButton();
     utility.assertElementText('#remove-sauce-labs-backpack', 'Remove');
 });

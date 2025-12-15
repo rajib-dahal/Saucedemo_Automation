@@ -79,4 +79,37 @@ class Utils {
 
 }
 
+export class CreateUser {
+    constructor() {
+        this.utils = new Utils()
+    }
+
+    generateName(prefix = 'Automation User', length = 6) {
+        return `${prefix} ${this.utils.randomString(length)}`
+    }
+
+    generateEmail(domain = 'test.com') {
+        const rand = this.utils.randomString(6)
+        return `automation.${Date.now()}.${rand}@${domain}`
+    }
+
+    generatePassword(length = 10) {
+        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()'
+        let pass = ''
+        for (let i = 0; i < length; i++) {
+            pass += chars.charAt(Math.floor(Math.random() * chars.length))
+        }
+        return pass
+    }
+
+    generateUser(overrides = {}) {
+        const name = overrides.name || this.generateName()
+        const gender = overrides.gender || 'male'
+        const email = overrides.email || this.generateEmail()
+        const status = overrides.status || 'active'
+        const password = overrides.password || this.generatePassword()
+        return { name, gender, email, status, password, ...overrides }
+    }
+}
+
 export default Utils

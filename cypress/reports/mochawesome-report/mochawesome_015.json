@@ -1,0 +1,178 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 0,
+    "pending": 0,
+    "failures": 4,
+    "start": "2025-12-15T05:44:01.456Z",
+    "end": "2025-12-15T05:44:04.347Z",
+    "duration": 2891,
+    "testsRegistered": 4,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "83927f5c-fe12-487c-a4d4-6a8a443db404",
+      "title": "",
+      "fullFile": "cypress\\e2e\\apiTest.cy.js",
+      "file": "cypress\\e2e\\apiTest.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "1d0520ad-0336-49bc-8c01-a2fb3e39be0c",
+          "title": "GoRest API Testing using Cypress",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Create user",
+              "fullTitle": "GoRest API Testing using Cypress Create user",
+              "timedOut": null,
+              "duration": 1261,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "_apiData.default.createUser(userData).then(res => {\n  expect(res.status).to.eq(201);\n  expect(res.body.email).to.eq(userData.email);\n  userId = res.body.id;\n});",
+              "err": {
+                "message": "CypressError: `cy.request()` failed on:\n\nhttps://gorest.co.in/public/v2/users\n\nThe response we received from your web server was:\n\n  > 401: Unauthorized\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: https://gorest.co.in/public/v2/users\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"Authorization\": \"Bearer undefined\",\n  \"Content-Type\": \"application/json\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/15.7.1 Chrome/138.0.7204.251 Electron/37.6.0 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-length\": 118\n}\nBody: {\"name\":\"Automation User uolbzb\",\"gender\":\"male\",\"email\":\"automation.1765777441493.uolbzb@test.com\",\"status\":\"active\"}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 401 - Unauthorized\nHeaders: {\n  \"date\": \"Mon, 15 Dec 2025 05:44:01 GMT\",\n  \"content-type\": \"application/json; charset=utf-8\",\n  \"content-length\": \"27\",\n  \"connection\": \"keep-alive\",\n  \"cache-control\": \"no-cache\",\n  \"feature-policy\": \"camera 'none'; gyroscope 'none'; microphone 'none'; usb 'none'; fullscreen 'self'\",\n  \"referrer-policy\": \"strict-origin-when-cross-origin\",\n  \"vary\": \"Origin\",\n  \"x-content-type-options\": \"nosniff\",\n  \"x-download-options\": \"noopen\",\n  \"x-frame-options\": \"SAMEORIGIN\",\n  \"x-permitted-cross-domain-policies\": \"none\",\n  \"x-request-id\": \"eb97d75a-f8aa-4817-ab39-d07b4285dea3\",\n  \"x-runtime\": \"0.013966\",\n  \"x-xss-protection\": \"0\",\n  \"nel\": \"{\\\"report_to\\\":\\\"cf-nel\\\",\\\"success_fraction\\\":0.0,\\\"max_age\\\":604800}\",\n  \"cf-cache-status\": \"DYNAMIC\",\n  \"report-to\": \"{\\\"group\\\":\\\"cf-nel\\\",\\\"max_age\\\":604800,\\\"endpoints\\\":[{\\\"url\\\":\\\"https://a.nel.cloudflare.com/report/v4?s=GoSfYihZ1WGa9vjexnLhEjnKH4F4k70uessucnc3CT6pygF8GvsXGDjzC6gCZCEH5Jh5fPpPkHXCEVlX3VWhzb1UJkq44tepDtI%3D\\\"}]}\",\n  \"server\": \"cloudflare\",\n  \"cf-ray\": \"9ae3a072ddb34365-KTM\",\n  \"alt-svc\": \"h3=\\\":443\\\"; ma=86400\"\n}\nBody: {\n  \"message\": \"Invalid token\"\n}\n\n\nhttps://on.cypress.io/request",
+                "estack": "CypressError: `cy.request()` failed on:\n\nhttps://gorest.co.in/public/v2/users\n\nThe response we received from your web server was:\n\n  > 401: Unauthorized\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: https://gorest.co.in/public/v2/users\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"Authorization\": \"Bearer undefined\",\n  \"Content-Type\": \"application/json\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/15.7.1 Chrome/138.0.7204.251 Electron/37.6.0 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-length\": 118\n}\nBody: {\"name\":\"Automation User uolbzb\",\"gender\":\"male\",\"email\":\"automation.1765777441493.uolbzb@test.com\",\"status\":\"active\"}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 401 - Unauthorized\nHeaders: {\n  \"date\": \"Mon, 15 Dec 2025 05:44:01 GMT\",\n  \"content-type\": \"application/json; charset=utf-8\",\n  \"content-length\": \"27\",\n  \"connection\": \"keep-alive\",\n  \"cache-control\": \"no-cache\",\n  \"feature-policy\": \"camera 'none'; gyroscope 'none'; microphone 'none'; usb 'none'; fullscreen 'self'\",\n  \"referrer-policy\": \"strict-origin-when-cross-origin\",\n  \"vary\": \"Origin\",\n  \"x-content-type-options\": \"nosniff\",\n  \"x-download-options\": \"noopen\",\n  \"x-frame-options\": \"SAMEORIGIN\",\n  \"x-permitted-cross-domain-policies\": \"none\",\n  \"x-request-id\": \"eb97d75a-f8aa-4817-ab39-d07b4285dea3\",\n  \"x-runtime\": \"0.013966\",\n  \"x-xss-protection\": \"0\",\n  \"nel\": \"{\\\"report_to\\\":\\\"cf-nel\\\",\\\"success_fraction\\\":0.0,\\\"max_age\\\":604800}\",\n  \"cf-cache-status\": \"DYNAMIC\",\n  \"report-to\": \"{\\\"group\\\":\\\"cf-nel\\\",\\\"max_age\\\":604800,\\\"endpoints\\\":[{\\\"url\\\":\\\"https://a.nel.cloudflare.com/report/v4?s=GoSfYihZ1WGa9vjexnLhEjnKH4F4k70uessucnc3CT6pygF8GvsXGDjzC6gCZCEH5Jh5fPpPkHXCEVlX3VWhzb1UJkq44tepDtI%3D\\\"}]}\",\n  \"server\": \"cloudflare\",\n  \"cf-ray\": \"9ae3a072ddb34365-KTM\",\n  \"alt-svc\": \"h3=\\\":443\\\"; ma=86400\"\n}\nBody: {\n  \"message\": \"Invalid token\"\n}\n\n\nhttps://on.cypress.io/request\n    at <unknown> (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:135916:72)\n    at tryCatcher (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1671:18)\n    at _drainQueueStep (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:2377:12)\n    at _drainQueue (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:2256:14)\nFrom Your Spec Code:\n    at ApiTest.createUser (webpack://saucedemo_automation/./cypress/pages/apiData.js:21:14)\n    at Context.eval (webpack://saucedemo_automation/./cypress/e2e/apiTest.cy.js:18:12)",
+                "diff": null
+              },
+              "uuid": "82de8485-1c53-4ce5-9e09-4418cdb69a1b",
+              "parentUUID": "1d0520ad-0336-49bc-8c01-a2fb3e39be0c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Get users list",
+              "fullTitle": "GoRest API Testing using Cypress Get users list",
+              "timedOut": null,
+              "duration": 545,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "_apiData.default.getUsers().then(res => {\n  expect(res.status).to.eq(200);\n  expect(res.body).to.be.an('array');\n});",
+              "err": {
+                "message": "CypressError: `cy.request()` failed on:\n\nhttps://gorest.co.in/public/v2/users\n\nThe response we received from your web server was:\n\n  > 401: Unauthorized\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: GET\nURL: https://gorest.co.in/public/v2/users\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"Authorization\": \"Bearer undefined\",\n  \"Content-Type\": \"application/json\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/15.7.1 Chrome/138.0.7204.251 Electron/37.6.0 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\"\n}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 401 - Unauthorized\nHeaders: {\n  \"date\": \"Mon, 15 Dec 2025 05:44:02 GMT\",\n  \"content-type\": \"application/json; charset=utf-8\",\n  \"content-length\": \"27\",\n  \"connection\": \"keep-alive\",\n  \"cache-control\": \"no-cache\",\n  \"feature-policy\": \"camera 'none'; gyroscope 'none'; microphone 'none'; usb 'none'; fullscreen 'self'\",\n  \"referrer-policy\": \"strict-origin-when-cross-origin\",\n  \"vary\": \"Origin\",\n  \"x-content-type-options\": \"nosniff\",\n  \"x-download-options\": \"noopen\",\n  \"x-frame-options\": \"SAMEORIGIN\",\n  \"x-permitted-cross-domain-policies\": \"none\",\n  \"x-request-id\": \"9a9159d6-1876-4b99-a87b-144486b7c076\",\n  \"x-runtime\": \"0.015211\",\n  \"x-xss-protection\": \"0\",\n  \"nel\": \"{\\\"report_to\\\":\\\"cf-nel\\\",\\\"success_fraction\\\":0.0,\\\"max_age\\\":604800}\",\n  \"cf-cache-status\": \"DYNAMIC\",\n  \"report-to\": \"{\\\"group\\\":\\\"cf-nel\\\",\\\"max_age\\\":604800,\\\"endpoints\\\":[{\\\"url\\\":\\\"https://a.nel.cloudflare.com/report/v4?s=C8JyO%2FBRaGoy9fyTTnzM9IJGdTTLIAEATDoYF7%2FJG%2B3tn%2Boqzp0Nzga2lX0edw7WY%2FRk15yGR%2B9aDdyxmgrDEJNvWgwR8iqr7rg%3D\\\"}]}\",\n  \"server\": \"cloudflare\",\n  \"cf-ray\": \"9ae3a0798b764365-KTM\",\n  \"alt-svc\": \"h3=\\\":443\\\"; ma=86400\"\n}\nBody: {\n  \"message\": \"Invalid token\"\n}\n\n\nhttps://on.cypress.io/request",
+                "estack": "CypressError: `cy.request()` failed on:\n\nhttps://gorest.co.in/public/v2/users\n\nThe response we received from your web server was:\n\n  > 401: Unauthorized\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: GET\nURL: https://gorest.co.in/public/v2/users\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"Authorization\": \"Bearer undefined\",\n  \"Content-Type\": \"application/json\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/15.7.1 Chrome/138.0.7204.251 Electron/37.6.0 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\"\n}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 401 - Unauthorized\nHeaders: {\n  \"date\": \"Mon, 15 Dec 2025 05:44:02 GMT\",\n  \"content-type\": \"application/json; charset=utf-8\",\n  \"content-length\": \"27\",\n  \"connection\": \"keep-alive\",\n  \"cache-control\": \"no-cache\",\n  \"feature-policy\": \"camera 'none'; gyroscope 'none'; microphone 'none'; usb 'none'; fullscreen 'self'\",\n  \"referrer-policy\": \"strict-origin-when-cross-origin\",\n  \"vary\": \"Origin\",\n  \"x-content-type-options\": \"nosniff\",\n  \"x-download-options\": \"noopen\",\n  \"x-frame-options\": \"SAMEORIGIN\",\n  \"x-permitted-cross-domain-policies\": \"none\",\n  \"x-request-id\": \"9a9159d6-1876-4b99-a87b-144486b7c076\",\n  \"x-runtime\": \"0.015211\",\n  \"x-xss-protection\": \"0\",\n  \"nel\": \"{\\\"report_to\\\":\\\"cf-nel\\\",\\\"success_fraction\\\":0.0,\\\"max_age\\\":604800}\",\n  \"cf-cache-status\": \"DYNAMIC\",\n  \"report-to\": \"{\\\"group\\\":\\\"cf-nel\\\",\\\"max_age\\\":604800,\\\"endpoints\\\":[{\\\"url\\\":\\\"https://a.nel.cloudflare.com/report/v4?s=C8JyO%2FBRaGoy9fyTTnzM9IJGdTTLIAEATDoYF7%2FJG%2B3tn%2Boqzp0Nzga2lX0edw7WY%2FRk15yGR%2B9aDdyxmgrDEJNvWgwR8iqr7rg%3D\\\"}]}\",\n  \"server\": \"cloudflare\",\n  \"cf-ray\": \"9ae3a0798b764365-KTM\",\n  \"alt-svc\": \"h3=\\\":443\\\"; ma=86400\"\n}\nBody: {\n  \"message\": \"Invalid token\"\n}\n\n\nhttps://on.cypress.io/request\n    at <unknown> (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:135916:72)\n    at tryCatcher (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1671:18)\n    at _drainQueueStep (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:2377:12)\n    at _drainQueue (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:2256:14)\nFrom Your Spec Code:\n    at ApiTest.getUsers (webpack://saucedemo_automation/./cypress/pages/apiData.js:30:14)\n    at Context.eval (webpack://saucedemo_automation/./cypress/e2e/apiTest.cy.js:26:12)",
+                "diff": null
+              },
+              "uuid": "d6992a04-3ccb-4a33-bf16-08057b42f363",
+              "parentUUID": "1d0520ad-0336-49bc-8c01-a2fb3e39be0c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Update user",
+              "fullTitle": "GoRest API Testing using Cypress Update user",
+              "timedOut": null,
+              "duration": 367,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "_apiData.default.updateUser(userId, {\n  name: 'Updated Automation User'\n}).then(res => {\n  expect(res.status).to.eq(200);\n  expect(res.body.name).to.eq('Updated Automation User');\n});",
+              "err": {
+                "message": "CypressError: `cy.request()` failed on:\n\nhttps://gorest.co.in/public/v2/users/undefined\n\nThe response we received from your web server was:\n\n  > 401: Unauthorized\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: PUT\nURL: https://gorest.co.in/public/v2/users/undefined\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"Authorization\": \"Bearer undefined\",\n  \"Content-Type\": \"application/json\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/15.7.1 Chrome/138.0.7204.251 Electron/37.6.0 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-length\": 34\n}\nBody: {\"name\":\"Updated Automation User\"}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 401 - Unauthorized\nHeaders: {\n  \"date\": \"Mon, 15 Dec 2025 05:44:03 GMT\",\n  \"content-type\": \"application/json; charset=utf-8\",\n  \"content-length\": \"27\",\n  \"connection\": \"keep-alive\",\n  \"cache-control\": \"no-cache\",\n  \"feature-policy\": \"camera 'none'; gyroscope 'none'; microphone 'none'; usb 'none'; fullscreen 'self'\",\n  \"referrer-policy\": \"strict-origin-when-cross-origin\",\n  \"vary\": \"Origin\",\n  \"x-content-type-options\": \"nosniff\",\n  \"x-download-options\": \"noopen\",\n  \"x-frame-options\": \"SAMEORIGIN\",\n  \"x-permitted-cross-domain-policies\": \"none\",\n  \"x-request-id\": \"4bfa844c-f770-4e72-8f71-cb5a63af6ebe\",\n  \"x-runtime\": \"0.013692\",\n  \"x-xss-protection\": \"0\",\n  \"nel\": \"{\\\"report_to\\\":\\\"cf-nel\\\",\\\"success_fraction\\\":0.0,\\\"max_age\\\":604800}\",\n  \"cf-cache-status\": \"DYNAMIC\",\n  \"report-to\": \"{\\\"group\\\":\\\"cf-nel\\\",\\\"max_age\\\":604800,\\\"endpoints\\\":[{\\\"url\\\":\\\"https://a.nel.cloudflare.com/report/v4?s=h%2BQFkXtY9e%2F%2BVB1LI%2BT5zl2Xsx5L4BjcwK%2Bp0bmk4v9DEwJNYcUE1By5retGP9yOIRskB8nvFibeHG8cZcxRznQYEME8VJumLrA%3D\\\"}]}\",\n  \"server\": \"cloudflare\",\n  \"cf-ray\": \"9ae3a07d6bd44365-KTM\",\n  \"alt-svc\": \"h3=\\\":443\\\"; ma=86400\"\n}\nBody: {\n  \"message\": \"Invalid token\"\n}\n\n\nhttps://on.cypress.io/request",
+                "estack": "CypressError: `cy.request()` failed on:\n\nhttps://gorest.co.in/public/v2/users/undefined\n\nThe response we received from your web server was:\n\n  > 401: Unauthorized\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: PUT\nURL: https://gorest.co.in/public/v2/users/undefined\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"Authorization\": \"Bearer undefined\",\n  \"Content-Type\": \"application/json\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/15.7.1 Chrome/138.0.7204.251 Electron/37.6.0 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-length\": 34\n}\nBody: {\"name\":\"Updated Automation User\"}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 401 - Unauthorized\nHeaders: {\n  \"date\": \"Mon, 15 Dec 2025 05:44:03 GMT\",\n  \"content-type\": \"application/json; charset=utf-8\",\n  \"content-length\": \"27\",\n  \"connection\": \"keep-alive\",\n  \"cache-control\": \"no-cache\",\n  \"feature-policy\": \"camera 'none'; gyroscope 'none'; microphone 'none'; usb 'none'; fullscreen 'self'\",\n  \"referrer-policy\": \"strict-origin-when-cross-origin\",\n  \"vary\": \"Origin\",\n  \"x-content-type-options\": \"nosniff\",\n  \"x-download-options\": \"noopen\",\n  \"x-frame-options\": \"SAMEORIGIN\",\n  \"x-permitted-cross-domain-policies\": \"none\",\n  \"x-request-id\": \"4bfa844c-f770-4e72-8f71-cb5a63af6ebe\",\n  \"x-runtime\": \"0.013692\",\n  \"x-xss-protection\": \"0\",\n  \"nel\": \"{\\\"report_to\\\":\\\"cf-nel\\\",\\\"success_fraction\\\":0.0,\\\"max_age\\\":604800}\",\n  \"cf-cache-status\": \"DYNAMIC\",\n  \"report-to\": \"{\\\"group\\\":\\\"cf-nel\\\",\\\"max_age\\\":604800,\\\"endpoints\\\":[{\\\"url\\\":\\\"https://a.nel.cloudflare.com/report/v4?s=h%2BQFkXtY9e%2F%2BVB1LI%2BT5zl2Xsx5L4BjcwK%2Bp0bmk4v9DEwJNYcUE1By5retGP9yOIRskB8nvFibeHG8cZcxRznQYEME8VJumLrA%3D\\\"}]}\",\n  \"server\": \"cloudflare\",\n  \"cf-ray\": \"9ae3a07d6bd44365-KTM\",\n  \"alt-svc\": \"h3=\\\":443\\\"; ma=86400\"\n}\nBody: {\n  \"message\": \"Invalid token\"\n}\n\n\nhttps://on.cypress.io/request\n    at <unknown> (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:135916:72)\n    at tryCatcher (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1671:18)\n    at _drainQueueStep (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:2377:12)\n    at _drainQueue (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:2256:14)\nFrom Your Spec Code:\n    at ApiTest.updateUser (webpack://saucedemo_automation/./cypress/pages/apiData.js:38:14)\n    at Context.eval (webpack://saucedemo_automation/./cypress/e2e/apiTest.cy.js:33:12)",
+                "diff": null
+              },
+              "uuid": "5ed17d75-0205-4dc0-ba8d-efa1f3499952",
+              "parentUUID": "1d0520ad-0336-49bc-8c01-a2fb3e39be0c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Delete user",
+              "fullTitle": "GoRest API Testing using Cypress Delete user",
+              "timedOut": null,
+              "duration": 406,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "_apiData.default.deleteUser(userId).then(res => {\n  expect(res.status).to.eq(204);\n});",
+              "err": {
+                "message": "CypressError: `cy.request()` failed on:\n\nhttps://gorest.co.in/public/v2/users/undefined\n\nThe response we received from your web server was:\n\n  > 401: Unauthorized\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: DELETE\nURL: https://gorest.co.in/public/v2/users/undefined\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"Authorization\": \"Bearer undefined\",\n  \"Content-Type\": \"application/json\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/15.7.1 Chrome/138.0.7204.251 Electron/37.6.0 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-length\": 0\n}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 401 - Unauthorized\nHeaders: {\n  \"date\": \"Mon, 15 Dec 2025 05:44:03 GMT\",\n  \"content-type\": \"application/json; charset=utf-8\",\n  \"content-length\": \"27\",\n  \"connection\": \"keep-alive\",\n  \"cache-control\": \"no-cache\",\n  \"feature-policy\": \"camera 'none'; gyroscope 'none'; microphone 'none'; usb 'none'; fullscreen 'self'\",\n  \"referrer-policy\": \"strict-origin-when-cross-origin\",\n  \"vary\": \"Origin\",\n  \"x-content-type-options\": \"nosniff\",\n  \"x-download-options\": \"noopen\",\n  \"x-frame-options\": \"SAMEORIGIN\",\n  \"x-permitted-cross-domain-policies\": \"none\",\n  \"x-request-id\": \"dcce9737-d894-4a64-acd6-b0448d2f50ef\",\n  \"x-runtime\": \"0.016546\",\n  \"x-xss-protection\": \"0\",\n  \"nel\": \"{\\\"report_to\\\":\\\"cf-nel\\\",\\\"success_fraction\\\":0.0,\\\"max_age\\\":604800}\",\n  \"cf-cache-status\": \"DYNAMIC\",\n  \"report-to\": \"{\\\"group\\\":\\\"cf-nel\\\",\\\"max_age\\\":604800,\\\"endpoints\\\":[{\\\"url\\\":\\\"https://a.nel.cloudflare.com/report/v4?s=n1sL8cN8ok5HCC7S3PFd7Po2MclnKatWsE07wn2pZOp%2BeEUluoEwBF5UjSB5rhIWIjiI%2BLcO%2BPUf%2ByyRSrtaWVabogRQJC6NxdI%3D\\\"}]}\",\n  \"server\": \"cloudflare\",\n  \"cf-ray\": \"9ae3a08038f14365-KTM\",\n  \"alt-svc\": \"h3=\\\":443\\\"; ma=86400\"\n}\nBody: {\n  \"message\": \"Invalid token\"\n}\n\n\nhttps://on.cypress.io/request",
+                "estack": "CypressError: `cy.request()` failed on:\n\nhttps://gorest.co.in/public/v2/users/undefined\n\nThe response we received from your web server was:\n\n  > 401: Unauthorized\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: DELETE\nURL: https://gorest.co.in/public/v2/users/undefined\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"Authorization\": \"Bearer undefined\",\n  \"Content-Type\": \"application/json\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/15.7.1 Chrome/138.0.7204.251 Electron/37.6.0 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-length\": 0\n}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 401 - Unauthorized\nHeaders: {\n  \"date\": \"Mon, 15 Dec 2025 05:44:03 GMT\",\n  \"content-type\": \"application/json; charset=utf-8\",\n  \"content-length\": \"27\",\n  \"connection\": \"keep-alive\",\n  \"cache-control\": \"no-cache\",\n  \"feature-policy\": \"camera 'none'; gyroscope 'none'; microphone 'none'; usb 'none'; fullscreen 'self'\",\n  \"referrer-policy\": \"strict-origin-when-cross-origin\",\n  \"vary\": \"Origin\",\n  \"x-content-type-options\": \"nosniff\",\n  \"x-download-options\": \"noopen\",\n  \"x-frame-options\": \"SAMEORIGIN\",\n  \"x-permitted-cross-domain-policies\": \"none\",\n  \"x-request-id\": \"dcce9737-d894-4a64-acd6-b0448d2f50ef\",\n  \"x-runtime\": \"0.016546\",\n  \"x-xss-protection\": \"0\",\n  \"nel\": \"{\\\"report_to\\\":\\\"cf-nel\\\",\\\"success_fraction\\\":0.0,\\\"max_age\\\":604800}\",\n  \"cf-cache-status\": \"DYNAMIC\",\n  \"report-to\": \"{\\\"group\\\":\\\"cf-nel\\\",\\\"max_age\\\":604800,\\\"endpoints\\\":[{\\\"url\\\":\\\"https://a.nel.cloudflare.com/report/v4?s=n1sL8cN8ok5HCC7S3PFd7Po2MclnKatWsE07wn2pZOp%2BeEUluoEwBF5UjSB5rhIWIjiI%2BLcO%2BPUf%2ByyRSrtaWVabogRQJC6NxdI%3D\\\"}]}\",\n  \"server\": \"cloudflare\",\n  \"cf-ray\": \"9ae3a08038f14365-KTM\",\n  \"alt-svc\": \"h3=\\\":443\\\"; ma=86400\"\n}\nBody: {\n  \"message\": \"Invalid token\"\n}\n\n\nhttps://on.cypress.io/request\n    at <unknown> (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:135916:72)\n    at tryCatcher (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1671:18)\n    at _drainQueueStep (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:2377:12)\n    at _drainQueue (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:2256:14)\nFrom Your Spec Code:\n    at ApiTest.deleteUser (webpack://saucedemo_automation/./cypress/pages/apiData.js:47:14)\n    at Context.eval (webpack://saucedemo_automation/./cypress/e2e/apiTest.cy.js:42:12)",
+                "diff": null
+              },
+              "uuid": "3b6fac39-014d-4a5c-b5e5-05a67f3995d8",
+              "parentUUID": "1d0520ad-0336-49bc-8c01-a2fb3e39be0c",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "82de8485-1c53-4ce5-9e09-4418cdb69a1b",
+            "d6992a04-3ccb-4a33-bf16-08057b42f363",
+            "5ed17d75-0205-4dc0-ba8d-efa1f3499952",
+            "3b6fac39-014d-4a5c-b5e5-05a67f3995d8"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 2579,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome-report",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

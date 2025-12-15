@@ -1,0 +1,162 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-12-15T04:28:56.403Z",
+    "end": "2025-12-15T04:28:59.928Z",
+    "duration": 3525,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "b243c57c-f693-4439-8af7-1240a1955257",
+      "title": "",
+      "fullFile": "cypress\\e2e\\login.cy.js",
+      "file": "cypress\\e2e\\login.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "8e6a4468-86d9-418c-b23f-0a67f8c9152a",
+          "title": "LOGIN",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "TC-LOGIN-001: To verify user can login with valid credentials",
+              "fullTitle": "LOGIN TC-LOGIN-001: To verify user can login with valid credentials",
+              "timedOut": null,
+              "duration": 1494,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "loginData.login();",
+              "err": {},
+              "uuid": "b32603ac-c15c-41d1-962c-c65e3ddd77a4",
+              "parentUUID": "8e6a4468-86d9-418c-b23f-0a67f8c9152a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC-LOGIN-002: To verify user can login with only username",
+              "fullTitle": "LOGIN TC-LOGIN-002: To verify user can login with only username",
+              "timedOut": null,
+              "duration": 873,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "loginData.visit();\nloginData.typeLoginUsername();\nloginData.clickLoginButton();\nutility.assertErrorMessage('[data-test=\"error\"]', 'Epic sadface: Password is required');",
+              "err": {},
+              "uuid": "7cbe018f-58cb-4151-a008-1331fbed05b0",
+              "parentUUID": "8e6a4468-86d9-418c-b23f-0a67f8c9152a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC-LOGIN-003: To verify user can login with only password",
+              "fullTitle": "LOGIN TC-LOGIN-003: To verify user can login with only password",
+              "timedOut": null,
+              "duration": 801,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "loginData.visit();\nloginData.typeLoginPassword();\nloginData.clickLoginButton();\nutility.assertErrorMessage('[data-test=\"error\"]', 'Epic sadface: Username is required');",
+              "err": {},
+              "uuid": "03f9ee9b-04f8-484d-b4b6-6ec3285ccc4e",
+              "parentUUID": "8e6a4468-86d9-418c-b23f-0a67f8c9152a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC-LOGIN-004: To verify user can login with empty fields",
+              "fullTitle": "LOGIN TC-LOGIN-004: To verify user can login with empty fields",
+              "timedOut": null,
+              "duration": 237,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "loginData.visit();\nloginData.clickLoginButton();\nutility.assertErrorMessage('[data-test=\"error\"]', 'Epic sadface: Username is required');",
+              "err": {},
+              "uuid": "f17ebec4-7bdc-4663-b58f-8f0d956459ad",
+              "parentUUID": "8e6a4468-86d9-418c-b23f-0a67f8c9152a",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "b32603ac-c15c-41d1-962c-c65e3ddd77a4",
+            "7cbe018f-58cb-4151-a008-1331fbed05b0",
+            "03f9ee9b-04f8-484d-b4b6-6ec3285ccc4e",
+            "f17ebec4-7bdc-4663-b58f-8f0d956459ad"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 3405,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome-report",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

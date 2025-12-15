@@ -5,9 +5,9 @@
     "passes": 3,
     "pending": 0,
     "failures": 0,
-    "start": "2025-12-13T15:27:18.426Z",
-    "end": "2025-12-13T15:27:27.973Z",
-    "duration": 9547,
+    "start": "2025-12-14T05:22:32.737Z",
+    "end": "2025-12-14T05:22:39.885Z",
+    "duration": 7148,
     "testsRegistered": 3,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "59f3bf62-d3c1-44e7-9cfe-81e99d2b3eb8",
+      "uuid": "b0380c72-a43d-46f9-aeb9-f0daa16d486f",
       "title": "",
       "fullFile": "cypress\\e2e\\addToCart.cy.js",
       "file": "cypress\\e2e\\addToCart.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "97b71d86-c636-4244-8a8d-308aa419a38a",
+          "uuid": "80c366e8-29a6-465a-85db-8b116ebd7bbd",
           "title": "ADD_TO_CART",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "TC-ADDTOCART-001: To verify add to cart button is working",
               "fullTitle": "ADD_TO_CART TC-ADDTOCART-001: To verify add to cart button is working",
               "timedOut": null,
-              "duration": 4083,
+              "duration": 3201,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -47,8 +47,8 @@
               "context": null,
               "code": "addToCartData.clickAddToCartButton();\nutility.assertElementText('#remove-sauce-labs-backpack', 'Remove');",
               "err": {},
-              "uuid": "a1cc7959-08ae-4fbf-9051-5d26c94fc86c",
-              "parentUUID": "97b71d86-c636-4244-8a8d-308aa419a38a",
+              "uuid": "a113848a-9065-468a-b48c-ca4e08260f37",
+              "parentUUID": "80c366e8-29a6-465a-85db-8b116ebd7bbd",
               "isHook": false,
               "skipped": false
             },
@@ -56,7 +56,7 @@
               "title": "TC-ADDTOCART-001: To verify cart icon is updated after item is added to cart",
               "fullTitle": "ADD_TO_CART TC-ADDTOCART-001: To verify cart icon is updated after item is added to cart",
               "timedOut": null,
-              "duration": 2946,
+              "duration": 2247,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -65,8 +65,8 @@
               "context": null,
               "code": "addToCartData.updateCart();",
               "err": {},
-              "uuid": "847735a0-0b07-4db5-8b90-e5ec29eebff7",
-              "parentUUID": "97b71d86-c636-4244-8a8d-308aa419a38a",
+              "uuid": "a1271a5b-f5a0-4ab7-a05d-7f712d40d945",
+              "parentUUID": "80c366e8-29a6-465a-85db-8b116ebd7bbd",
               "isHook": false,
               "skipped": false
             },
@@ -74,7 +74,7 @@
               "title": "TC-ADDTOCART-001: To verify user can add product from product page",
               "fullTitle": "ADD_TO_CART TC-ADDTOCART-001: To verify user can add product from product page",
               "timedOut": null,
-              "duration": 2182,
+              "duration": 1505,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -83,22 +83,22 @@
               "context": null,
               "code": "addToCartData.addToCartProductPage();",
               "err": {},
-              "uuid": "5e9bf038-4b45-4020-9d70-54641a729ddd",
-              "parentUUID": "97b71d86-c636-4244-8a8d-308aa419a38a",
+              "uuid": "aa8dd0e5-dc46-4f0e-b906-f266e9eec143",
+              "parentUUID": "80c366e8-29a6-465a-85db-8b116ebd7bbd",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "a1cc7959-08ae-4fbf-9051-5d26c94fc86c",
-            "847735a0-0b07-4db5-8b90-e5ec29eebff7",
-            "5e9bf038-4b45-4020-9d70-54641a729ddd"
+            "a113848a-9065-468a-b48c-ca4e08260f37",
+            "a1271a5b-f5a0-4ab7-a05d-7f712d40d945",
+            "aa8dd0e5-dc46-4f0e-b906-f266e9eec143"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 9211,
+          "duration": 6953,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

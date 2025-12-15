@@ -1,0 +1,178 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 0,
+    "pending": 0,
+    "failures": 4,
+    "start": "2025-12-15T04:28:41.837Z",
+    "end": "2025-12-15T04:28:42.956Z",
+    "duration": 1119,
+    "testsRegistered": 4,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "640ce813-cf11-46f4-9fdb-070c6bba8831",
+      "title": "",
+      "fullFile": "cypress\\e2e\\apiTest.cy.js",
+      "file": "cypress\\e2e\\apiTest.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "fecd992f-4cba-4a0f-b58d-40960e2bbf06",
+          "title": "GoRest API Testing using Cypress",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Create user",
+              "fullTitle": "GoRest API Testing using Cypress Create user",
+              "timedOut": null,
+              "duration": 274,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "_apiData.default.createUser(userData).then(res => {\n  expect(res.status).to.eq(201);\n  expect(res.body.email).to.eq(userData.email);\n  userId = res.body.id;\n});",
+              "err": {
+                "message": "CypressError: `cy.request()` requires a `url`. You did not provide a `url`.\n\nhttps://on.cypress.io/request",
+                "estack": "CypressError: `cy.request()` requires a `url`. You did not provide a `url`.\n\nhttps://on.cypress.io/request\n    at Context.request (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:135688:70)\n    at wrapped (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:145810:43)\nFrom Your Spec Code:\n    at ApiTest.createUser (webpack://saucedemo_automation/./cypress/pages/apiData.js:21:14)\n    at Context.eval (webpack://saucedemo_automation/./cypress/e2e/apiTest.cy.js:17:12)",
+                "diff": null
+              },
+              "uuid": "a91a4aed-430c-4844-ab90-6108922c3bf9",
+              "parentUUID": "fecd992f-4cba-4a0f-b58d-40960e2bbf06",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Get users list",
+              "fullTitle": "GoRest API Testing using Cypress Get users list",
+              "timedOut": null,
+              "duration": 192,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "_apiData.default.getUsers().then(res => {\n  expect(res.status).to.eq(200);\n  expect(res.body).to.be.an('array');\n});",
+              "err": {
+                "message": "CypressError: `cy.request()` requires a `url`. You did not provide a `url`.\n\nhttps://on.cypress.io/request",
+                "estack": "CypressError: `cy.request()` requires a `url`. You did not provide a `url`.\n\nhttps://on.cypress.io/request\n    at Context.request (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:135688:70)\n    at wrapped (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:145810:43)\nFrom Your Spec Code:\n    at ApiTest.getUsers (webpack://saucedemo_automation/./cypress/pages/apiData.js:30:14)\n    at Context.eval (webpack://saucedemo_automation/./cypress/e2e/apiTest.cy.js:25:12)",
+                "diff": null
+              },
+              "uuid": "6f35eae3-8188-4cf0-a018-09ca0a3ef46d",
+              "parentUUID": "fecd992f-4cba-4a0f-b58d-40960e2bbf06",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Update user",
+              "fullTitle": "GoRest API Testing using Cypress Update user",
+              "timedOut": null,
+              "duration": 245,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "_apiData.default.updateUser(userId, {\n  name: 'Updated Automation User'\n}).then(res => {\n  expect(res.status).to.eq(200);\n  expect(res.body.name).to.eq('Updated Automation User');\n});",
+              "err": {
+                "message": "CypressError: `cy.request()` failed on:\n\nhttps://www.saucedemo.com/undefined/undefined\n\nThe response we received from your web server was:\n\n  > 405: Method Not Allowed\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: PUT\nURL: https://www.saucedemo.com/undefined/undefined\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"Authorization\": \"Bearer undefined\",\n  \"Content-Type\": \"application/json\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/15.7.1 Chrome/138.0.7204.251 Electron/37.6.0 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-length\": 34\n}\nBody: {\"name\":\"Updated Automation User\"}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 405 - Method Not Allowed\nHeaders: {\n  \"connection\": \"close\",\n  \"content-length\": \"131\",\n  \"server\": \"Varnish\",\n  \"retry-after\": \"0\",\n  \"accept-ranges\": \"bytes\",\n  \"date\": \"Mon, 15 Dec 2025 04:28:42 GMT\",\n  \"via\": \"1.1 varnish\",\n  \"x-served-by\": \"cache-bom-vanm7210061-BOM\",\n  \"x-cache\": \"MISS\",\n  \"x-cache-hits\": \"0\",\n  \"x-timer\": \"S1765772922.433796,VS0,VE0\",\n  \"x-fastly-request-id\": \"171b2945d899335a10e9d9c1e348ae29fda0ba2c\"\n}\nBody: <html>\n<head><title>405 Not Allowed</title></head>\n<body bgcolor=\"white\">\n<center><h1>405 Not Allowed</h1></center>\n</body>\n</html>\n\n\nhttps://on.cypress.io/request",
+                "estack": "CypressError: `cy.request()` failed on:\n\nhttps://www.saucedemo.com/undefined/undefined\n\nThe response we received from your web server was:\n\n  > 405: Method Not Allowed\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: PUT\nURL: https://www.saucedemo.com/undefined/undefined\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"Authorization\": \"Bearer undefined\",\n  \"Content-Type\": \"application/json\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/15.7.1 Chrome/138.0.7204.251 Electron/37.6.0 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-length\": 34\n}\nBody: {\"name\":\"Updated Automation User\"}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 405 - Method Not Allowed\nHeaders: {\n  \"connection\": \"close\",\n  \"content-length\": \"131\",\n  \"server\": \"Varnish\",\n  \"retry-after\": \"0\",\n  \"accept-ranges\": \"bytes\",\n  \"date\": \"Mon, 15 Dec 2025 04:28:42 GMT\",\n  \"via\": \"1.1 varnish\",\n  \"x-served-by\": \"cache-bom-vanm7210061-BOM\",\n  \"x-cache\": \"MISS\",\n  \"x-cache-hits\": \"0\",\n  \"x-timer\": \"S1765772922.433796,VS0,VE0\",\n  \"x-fastly-request-id\": \"171b2945d899335a10e9d9c1e348ae29fda0ba2c\"\n}\nBody: <html>\n<head><title>405 Not Allowed</title></head>\n<body bgcolor=\"white\">\n<center><h1>405 Not Allowed</h1></center>\n</body>\n</html>\n\n\nhttps://on.cypress.io/request\n    at <unknown> (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:135916:72)\n    at tryCatcher (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1671:18)\n    at _drainQueueStep (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:2377:12)\n    at _drainQueue (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:2256:14)\nFrom Your Spec Code:\n    at ApiTest.updateUser (webpack://saucedemo_automation/./cypress/pages/apiData.js:38:14)\n    at Context.eval (webpack://saucedemo_automation/./cypress/e2e/apiTest.cy.js:32:12)",
+                "diff": null
+              },
+              "uuid": "9ec5213d-d403-4763-9832-aa43d9821aa3",
+              "parentUUID": "fecd992f-4cba-4a0f-b58d-40960e2bbf06",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Delete user",
+              "fullTitle": "GoRest API Testing using Cypress Delete user",
+              "timedOut": null,
+              "duration": 246,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "_apiData.default.deleteUser(userId).then(res => {\n  expect(res.status).to.eq(204);\n});",
+              "err": {
+                "message": "CypressError: `cy.request()` failed on:\n\nhttps://www.saucedemo.com/undefined/undefined\n\nThe response we received from your web server was:\n\n  > 405: Method Not Allowed\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: DELETE\nURL: https://www.saucedemo.com/undefined/undefined\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"Authorization\": \"Bearer undefined\",\n  \"Content-Type\": \"application/json\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/15.7.1 Chrome/138.0.7204.251 Electron/37.6.0 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-length\": 0\n}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 405 - Method Not Allowed\nHeaders: {\n  \"connection\": \"close\",\n  \"content-length\": \"131\",\n  \"server\": \"Varnish\",\n  \"retry-after\": \"0\",\n  \"accept-ranges\": \"bytes\",\n  \"date\": \"Mon, 15 Dec 2025 04:28:42 GMT\",\n  \"via\": \"1.1 varnish\",\n  \"x-served-by\": \"cache-bom-vanm7210048-BOM\",\n  \"x-cache\": \"MISS\",\n  \"x-cache-hits\": \"0\",\n  \"x-timer\": \"S1765772923.730794,VS0,VE0\",\n  \"x-fastly-request-id\": \"34686551a2fef99dcab6d6e76f5b9cc1c421324b\"\n}\nBody: <html>\n<head><title>405 Not Allowed</title></head>\n<body bgcolor=\"white\">\n<center><h1>405 Not Allowed</h1></center>\n</body>\n</html>\n\n\nhttps://on.cypress.io/request",
+                "estack": "CypressError: `cy.request()` failed on:\n\nhttps://www.saucedemo.com/undefined/undefined\n\nThe response we received from your web server was:\n\n  > 405: Method Not Allowed\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: DELETE\nURL: https://www.saucedemo.com/undefined/undefined\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"Authorization\": \"Bearer undefined\",\n  \"Content-Type\": \"application/json\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/15.7.1 Chrome/138.0.7204.251 Electron/37.6.0 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-length\": 0\n}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 405 - Method Not Allowed\nHeaders: {\n  \"connection\": \"close\",\n  \"content-length\": \"131\",\n  \"server\": \"Varnish\",\n  \"retry-after\": \"0\",\n  \"accept-ranges\": \"bytes\",\n  \"date\": \"Mon, 15 Dec 2025 04:28:42 GMT\",\n  \"via\": \"1.1 varnish\",\n  \"x-served-by\": \"cache-bom-vanm7210048-BOM\",\n  \"x-cache\": \"MISS\",\n  \"x-cache-hits\": \"0\",\n  \"x-timer\": \"S1765772923.730794,VS0,VE0\",\n  \"x-fastly-request-id\": \"34686551a2fef99dcab6d6e76f5b9cc1c421324b\"\n}\nBody: <html>\n<head><title>405 Not Allowed</title></head>\n<body bgcolor=\"white\">\n<center><h1>405 Not Allowed</h1></center>\n</body>\n</html>\n\n\nhttps://on.cypress.io/request\n    at <unknown> (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:135916:72)\n    at tryCatcher (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1671:18)\n    at _drainQueueStep (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:2377:12)\n    at _drainQueue (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:2256:14)\nFrom Your Spec Code:\n    at ApiTest.deleteUser (webpack://saucedemo_automation/./cypress/pages/apiData.js:47:14)\n    at Context.eval (webpack://saucedemo_automation/./cypress/e2e/apiTest.cy.js:41:12)",
+                "diff": null
+              },
+              "uuid": "3345eef1-87b3-4931-9693-a116845571b8",
+              "parentUUID": "fecd992f-4cba-4a0f-b58d-40960e2bbf06",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "a91a4aed-430c-4844-ab90-6108922c3bf9",
+            "6f35eae3-8188-4cf0-a018-09ca0a3ef46d",
+            "9ec5213d-d403-4763-9832-aa43d9821aa3",
+            "3345eef1-87b3-4931-9693-a116845571b8"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 957,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome-report",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}
