@@ -1,0 +1,76 @@
+[
+  {
+    "code": "ADM-01",
+    "name": {
+      "en": "Administration & Recommendation",
+      "np": "प्रशासन तथा सिफारिस शाखा"
+    },
+    "services": [
+      "SIFARISH",
+      "PROFILING",
+      "MISCELLANEOUS"
+    ]
+  },
+  {
+    "code": "JUD-02",
+    "name": {
+      "en": "Judicial Committee",
+      "np": "न्यायिक समिति (इजलास)"
+    },
+    "services": [
+      "IJALAS"
+    ]
+  },
+  {
+    "code": "INF-03",
+    "name": {
+      "en": "Citizen Charter & Information",
+      "np": "नागरिक वडापत्र तथा सूचना शाखा"
+    },
+    "services": [
+      "WADAPATRA",
+      "PAPER_LESS_DOCUMENT"
+    ]
+  },
+  {
+    "code": "AGR-04",
+    "name": {
+      "en": "Agriculture & Livestock",
+      "np": "कृषि तथा पशुपन्छी विकास शाखा"
+    },
+    "services": [
+      "AGRICULTURE"
+    ]
+  },
+  {
+    "code": "SOC-05",
+    "name": {
+      "en": "Social Security & Inclusion",
+      "np": "सामाजिक सुरक्षा तथा समावेशीकरण शाखा"
+    },
+    "services": [
+      "DISABILITY",
+      "JESTHA_NAGARIK"
+    ]
+  },
+  {
+    "code": "BUS-06",
+    "name": {
+      "en": "Business & Industry",
+      "np": "व्यवसाय तथा उद्योग शाखा"
+    },
+    "services": [
+      "BUSINESS"
+    ]
+  },
+  {
+    "code": "OTH-07",
+    "name": {
+      "en": "Other & General Services",
+      "np": "अन्य तथा विविध सेवा शाखा"
+    },
+    "services": [
+      "OTHERS"
+    ]
+  }
+]

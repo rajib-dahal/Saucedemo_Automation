@@ -1,4 +1,4 @@
-class Utils {
+export default class Utils {
 
     // Wait for URL to contain text
     waitForUrlContains(text) {
@@ -77,9 +77,11 @@ class Utils {
         return Math.random().toString(36).substring(2, 2 + length)
     }
 
+   
 }
 
-export class CreateUser {
+
+ class CreateUser {
     constructor() {
         this.utils = new Utils()
     }
@@ -112,4 +114,6 @@ export class CreateUser {
     }
 }
 
-export default Utils
+ 
+
+// export{ Utils, CreateUser, TableUtils  }
