@@ -35,6 +35,11 @@ module.exports = defineConfig({
       // Set baseUrl dynamically
       config.baseUrl = parsedEnv.BASE_URL || process.env.BASE_URL;
 
+      if (!config.baseUrl) {
+        console.warn("⚠️  Warning: BASE_URL is not set in environment or .env file. using default https://www.saucedemo.com/");
+        config.baseUrl = "https://www.saucedemo.com/";
+      }
+
       return config;
     },
 
