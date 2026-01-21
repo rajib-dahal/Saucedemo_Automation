@@ -10,6 +10,16 @@ jobs:
   cypress-run:
     runs-on: ubuntu-latest
 
+    # Environment variables for Cypress
+    env:
+      CYPRESS_USERNAME: ${{ secrets.CYPRESS_USERNAME }}
+      CYPRESS_PASSWORD: ${{ secrets.CYPRESS_PASSWORD }}
+      BASE_URL: ${{ secrets.BASE_URL }}
+      AUTHENTICATION_TOKEN: ${{ secrets.AUTHENTICATION_TOKEN }}
+      API_URL: ${{ secrets.API_URL }}
+      # Ensure Cypress runs in the desired environment mode (e.g., staging)
+      NODE_ENV: staging
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -22,5 +32,28 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      # Clean reports before running (optional since it's a fresh VM, but good practice)
+      - name: Clean Reports
+        run: npm run cleanup:reports
+
+      # Run Cypress tests
+      # We don't use continue-on-error here because we want the job to fail if tests fail.
+      # Subsequent steps will use 'if: always()' to ensure reports are generated.
       - name: Run Cypress tests
         run: npm run cy:run
+
+      - name: Merge Reports
+        if: always() # Run this even if tests fail
+        run: npm run merge:reports
+
+      - name: Generate HTML Report
+        if: always() # Run this even if tests fail
+        run: npm run generate:report
+
+      - name: Upload Report Artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-report
+          path: cypress/reports
+          retention-days: 30
