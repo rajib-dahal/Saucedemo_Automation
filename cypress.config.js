@@ -14,22 +14,26 @@ module.exports = defineConfig({
       const envFilePath = path.resolve(__dirname, `.env.${ENV}`);
       const envConfig = dotenv.config({ path: envFilePath });
 
+      // In CI/CD, .env files might not exist, so we don't throw an error.
+      // We log a warning instead and rely on process.env variables.
       if (envConfig.error) {
-        throw new Error(`❌ Failed to load environment file: ${envFilePath}`);
+        console.warn(`⚠️  Warning: Failed to load environment file: ${envFilePath}. Relying on system environment variables.`);
       }
+
+      const parsedEnv = envConfig.parsed || {};
 
       // Merge env variables into Cypress config.env
       config.env = {
         ...config.env,
-        username: envConfig.parsed.CYPRESS_USERNAME || process.env.CYPRESS_USERNAME,
-        password: envConfig.parsed.CYPRESS_PASSWORD || process.env.CYPRESS_PASSWORD,
-        token: envConfig.parsed.AUTHENTICATION_TOKEN || process.env.AUTHENTICATION_TOKEN,
-        API_URL: envConfig.parsed.API_URL || process.env.API_URL,
+        username: parsedEnv.CYPRESS_USERNAME || process.env.CYPRESS_USERNAME,
+        password: parsedEnv.CYPRESS_PASSWORD || process.env.CYPRESS_PASSWORD,
+        token: parsedEnv.AUTHENTICATION_TOKEN || process.env.AUTHENTICATION_TOKEN,
+        API_URL: parsedEnv.API_URL || process.env.API_URL,
         envName: ENV,
       };
 
       // Set baseUrl dynamically
-      config.baseUrl = envConfig.parsed.BASE_URL || process.env.BASE_URL;
+      config.baseUrl = parsedEnv.BASE_URL || process.env.BASE_URL;
 
       return config;
     },
