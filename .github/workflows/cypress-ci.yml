@@ -78,8 +78,8 @@ jobs:
         if: always()
         run: |
           npm run allure:generate
-          # Combine Allure folder into a single HTML file
-          npx -y allure-single-html-file-js -d cypress/reports/allure-report
+          # Combine Allure folder into a single HTML file using the new script
+          npm run allure:combine
           mv cypress/reports/allure-report/complete.html cypress/reports/allure-report.html
 
       - name: Send email with Reports
