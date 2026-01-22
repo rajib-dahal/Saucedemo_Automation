@@ -115,18 +115,25 @@ jobs:
       - name: Auto-Merge PR on Success
         if: steps.tests.outcome == 'success' && env.PR_NUMBER != ''
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.MY_PAT }}
         run: |
           echo "Test Passed. Attempting to merge PR #${PR_NUMBER}..."
-          # Approve PR first (sometimes required for merge)
-          gh pr review $PR_NUMBER --approve || echo "Review not needed or failed"
-          # Attempt Merge
-          gh pr merge $PR_NUMBER --merge --delete-branch --admin || echo "Merge failed. Check permissions and branch protection rules."
+          
+          # Wait a few seconds for GitHub API data consistency
+          sleep 5
+
+          # Try basic merge first (most common)
+          gh pr merge $PR_NUMBER --merge --delete-branch || \
+          # If that fails, try to approve first then merge
+          (gh pr review $PR_NUMBER --approve && gh pr merge $PR_NUMBER --merge --delete-branch) || \
+          # If that fails, try admin merge (bypass rules)
+          gh pr merge $PR_NUMBER --merge --delete-branch --admin || \
+          echo "CRITICAL ERROR: Could not merge PR. Verify branch protection rules for 'main'."
 
       - name: Close PR on Failure
         if: steps.tests.outcome == 'failure' && env.PR_NUMBER != ''
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.MY_PAT }}
         run: |
           echo "Test Failed. Closing PR #${PR_NUMBER}..."
           gh pr close $PR_NUMBER --comment "❌ Cypress tests failed. This PR is being auto-closed." || echo "Close failed (PR might be already closed)"
