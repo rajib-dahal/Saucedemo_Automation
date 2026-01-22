@@ -112,18 +112,22 @@ jobs:
           attachments: cypress/reports/final-report.html,cypress/reports/allure-report.html
 
       # ---------- PR ACTIONS ----------
-      - name: Merge PR on success
+      - name: Auto-Merge PR on Success
         if: steps.tests.outcome == 'success' && env.PR_NUMBER != ''
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh pr merge $PR_NUMBER --merge --delete-branch
-          echo "✅ PR Merged"
+          echo "Test Passed. Attempting to merge PR #${PR_NUMBER}..."
+          gh pr merge $PR_NUMBER --merge --delete-branch || echo "Merge failed (PR might be not mergeable or already merged)"
 
-      - name: Close PR on failure
+      - name: Close PR on Failure
         if: steps.tests.outcome == 'failure' && env.PR_NUMBER != ''
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh pr close $PR_NUMBER \
-            --comment "❌ Cypress tests failed. Auto-closing PR."
-          echo "❌ PR Closed"
+          echo "Test Failed. Closing PR #${PR_NUMBER}..."
+          gh pr close $PR_NUMBER --comment "❌ Cypress tests failed. This PR is being auto-closed." || echo "Close failed (PR might be already closed)"
+
 
       - name: Fail job if tests failed
         if: steps.tests.outcome == 'failure'
