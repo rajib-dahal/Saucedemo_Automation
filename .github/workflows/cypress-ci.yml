@@ -72,14 +72,20 @@ jobs:
           path: cypress/reports
           retention-days: 30
 
-      # ---------- EMAIL (SAFE) ----------
-      - name: Send email with report link
+      - name: Zip HTML report
+        if: always()
+        run: |
+          sudo apt-get update && sudo apt-get install -y zip
+          zip -r cypress-report.zip cypress/reports
+
+      - name: Send email with HTML report attachment
         if: always()
         uses: dawidd6/action-send-mail@v3
         with:
-          server_address: smtp.gmail.com
-          server_port: 465
-          secure: true
+          server_address: smtp.office365.com
+          server_port: 587
+          secure: false
+
           username: ${{ secrets.EMAIL_USER }}
           password: ${{ secrets.EMAIL_PASS }}
 
@@ -95,8 +101,10 @@ jobs:
             Branch: ${{ github.ref_name }}
             Run: #${{ github.run_number }}
 
-            Download HTML Report:
-            https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+            HTML report is attached.
+
+          attachments: cypress-report.zip
+
 
       # ---------- PR ACTIONS ----------
       - name: Merge PR on success
