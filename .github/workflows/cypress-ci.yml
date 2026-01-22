@@ -1,19 +1,18 @@
-name: Cypress CI/CD
+name: Cypress CI with Email Report
 
 on:
   push:
     branches: [ main, Rajib ]
   pull_request:
     branches: [ main ]
+  workflow_dispatch:
 
 permissions:
-  contents: write
-  pull-requests: write
+  contents: read
 
 jobs:
   cypress:
     runs-on: ubuntu-latest
-    environment: staging
 
     env:
       CYPRESS_USERNAME: ${{ secrets.CYPRESS_USERNAME }}
@@ -22,30 +21,18 @@ jobs:
       AUTHENTICATION_TOKEN: ${{ secrets.AUTHENTICATION_TOKEN }}
       API_URL: ${{ secrets.API_URL }}
       NODE_ENV: staging
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
-          node-version: '18.18.2'
+          node-version: 18
 
       - name: Install dependencies
         run: npm ci
-
-      - name: Set PR Number
-        run: |
-          if [ "${{ github.event_name }}" = "pull_request" ]; then
-            echo "PR_NUMBER=${{ github.event.pull_request.number }}" >> $GITHUB_ENV
-          elif [ "${{ github.ref }}" = "refs/heads/Rajib" ]; then
-            gh pr create --base main --head Rajib \
-              --title "Auto PR: Rajib → Main" \
-              --body "Automated PR from CI" || true
-
-            PR=$(gh pr list --head Rajib --base main --state open --json number --jq '.[0].number')
-            echo "PR_NUMBER=$PR" >> $GITHUB_ENV
-          fi
 
       - name: Clean reports
         run: npm run cleanup:reports
@@ -55,20 +42,21 @@ jobs:
         run: npm run cy:run
         continue-on-error: true
 
-      - name: Generate report
+      - name: Generate HTML report
         if: always()
         run: |
           npm run merge:reports
           npm run generate:report
 
-      - name: Zip HTML report
+      - name: Upload Cypress report artifact
         if: always()
-        run: |
-          # Ensure zip is installed
-          sudo apt-get update && sudo apt-get install -y zip
-          zip -r cypress-report.zip cypress/reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-html-report
+          path: cypress/reports
+          retention-days: 30
 
-      - name: Send email with HTML report
+      - name: Send email with report link
         if: always()
         uses: dawidd6/action-send-mail@v3
         with:
@@ -77,37 +65,26 @@ jobs:
           secure: true
           username: ${{ secrets.EMAIL_USER }}
           password: ${{ secrets.EMAIL_PASS }}
+
           to: ${{ secrets.EMAIL_TO }}
           from: GitHub CI <${{ secrets.EMAIL_USER }}>
-          subject: "Cypress Test Report - ${{ steps.tests.outcome }}"
+          subject: "Cypress Test Report – ${{ steps.tests.outcome }}"
+
           body: |
-            Cypress test execution is complete.
+            Hi Rajib,
+
+            Cypress test execution has completed.
 
             Status: ${{ steps.tests.outcome }}
-            Repo: ${{ github.repository }}
+            Repository: ${{ github.repository }}
+            Branch: ${{ github.ref_name }}
             Run: #${{ github.run_number }}
 
-            HTML report is attached.
-          attachments: cypress-report.zip
+            Download HTML Report:
+            https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
 
-      - name: Upload report artifact
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: cypress-report
-          path: cypress/reports
+            – GitHub Actions 🤖
 
-      - name: Merge PR on success
-        if: steps.tests.outcome == 'success' && env.PR_NUMBER != ''
-        run: |
-          gh pr merge $PR_NUMBER --merge --delete-branch
-
-      - name: Close PR on failure
-        if: steps.tests.outcome == 'failure' && env.PR_NUMBER != ''
-        run: |
-          gh pr close $PR_NUMBER \
-            --comment "❌ Cypress tests failed. Auto-closing PR."
-
-      - name: Fail job if tests failed
+      - name: Mark job as failed if tests failed
         if: steps.tests.outcome == 'failure'
         run: exit 1
