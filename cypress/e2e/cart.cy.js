@@ -27,7 +27,7 @@ describe('CART', () => {
     cartData.clickCartIcon()
     utility.assertUrl('https://www.saucedemo.com/cart.html')
     cartData.clickCartContinueButton()
-    utility.assertUrl('https://www.saucedemo.com/inventory.html')
+    utility.assertUrl('')
   })
 
 

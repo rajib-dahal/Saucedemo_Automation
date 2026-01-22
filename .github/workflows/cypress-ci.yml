@@ -1,25 +1,32 @@
-name: Cypress Automation CI
+name: Cypress CI/CD
 
 on:
   push:
-    branches: [ "main" ]
+    branches: 
+      - main
+      - Rajib
   pull_request:
-    branches: [ "main" ]
+    branches: 
+      - main
+
+permissions:
+  contents: write
+  checks: write
+  pull-requests: write
 
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
     environment: staging
 
-    # Environment variables for Cypress
     env:
       CYPRESS_USERNAME: ${{ secrets.CYPRESS_USERNAME }}
       CYPRESS_PASSWORD: ${{ secrets.CYPRESS_PASSWORD }}
       BASE_URL: ${{ secrets.BASE_URL }}
       AUTHENTICATION_TOKEN: ${{ secrets.AUTHENTICATION_TOKEN }}
       API_URL: ${{ secrets.API_URL }}
-      # Ensure Cypress runs in the desired environment mode (e.g., staging)
       NODE_ENV: staging
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
       - name: Checkout code
@@ -29,32 +36,59 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '18.18.2'
-
+      
       - name: Install dependencies
         run: npm ci
 
-      # Clean reports before running (optional since it's a fresh VM, but good practice)
+      - name: Setup PR Info (Push to Rajib)
+        if: github.event_name == 'push' && github.ref == 'refs/heads/Rajib'
+        run: |
+          # Create PR if not exists. Ignore error if it does.
+          gh pr create --base main --head Rajib --title "Auto PR: Rajib to Main" --body "Automated Pull Request created by GitHub Actions." || echo "PR might already exist"
+          
+          # Get PR Number
+          PR_NUM=$(gh pr list --state open --head Rajib --base main --json number --jq '.[0].number')
+          echo "PR_NUMBER=$PR_NUM" >> $GITHUB_ENV
+          echo "Identified PR #$PR_NUM"
+
+      - name: Setup PR Info (Pull Request)
+        if: github.event_name == 'pull_request'
+        run: |
+          echo "PR_NUMBER=${{ github.event.pull_request.number }}" >> $GITHUB_ENV
+
       - name: Clean Reports
         run: npm run cleanup:reports
 
-      # Run Cypress tests
-      # We don't use continue-on-error here because we want the job to fail if tests fail.
-      # Subsequent steps will use 'if: always()' to ensure reports are generated.
       - name: Run Cypress tests
+        id: cypress
         run: npm run cy:run
 
-      - name: Merge Reports
-        if: always() # Run this even if tests fail
+      - name: Merge Reports (Always)
+        if: always()
         run: npm run merge:reports
 
-      - name: Generate HTML Report
-        if: always() # Run this even if tests fail
+      - name: Generate HTML Report (Always)
+        if: always()
         run: npm run generate:report
 
-      - name: Upload Report Artifact
+      - name: Upload Report Artifact (Always)
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: cypress-report
           path: cypress/reports
           retention-days: 30
+
+      - name: Merge PR on Success
+        if: success() && env.PR_NUMBER != ''
+        run: |
+          echo "Test Passed. Merging PR #$PR_NUMBER..."
+          gh pr merge $PR_NUMBER --merge --delete-branch
+          echo "Merge complete."
+
+      - name: Close PR on Failure
+        if: failure() && env.PR_NUMBER != ''
+        run: |
+          echo "Tests Failed. Closing PR #$PR_NUMBER..."
+          gh pr close $PR_NUMBER --comment "Cypress tests failed. Auto-closing PR."
+          echo "PR Closed."
