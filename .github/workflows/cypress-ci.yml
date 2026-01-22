@@ -74,12 +74,6 @@ jobs:
           path: cypress/reports
           retention-days: 30
 
-      - name: Zip HTML report
-        if: always()
-        run: |
-          sudo apt-get update && sudo apt-get install -y zip
-          zip -r cypress-report.zip cypress/reports
-
       - name: Send email with HTML report
         if: always()
         uses: dawidd6/action-send-mail@v3
@@ -105,7 +99,7 @@ jobs:
 
             HTML report is attached.
 
-          attachments: cypress-report.zip
+          attachments: cypress/reports/final-report.html
 
       # ---------- PR ACTIONS ----------
       - name: Merge PR on success
