@@ -2,20 +2,16 @@ name: Cypress CI/CD
 
 on:
   push:
-    branches: 
-      - main
-      - Rajib
+    branches: [ main, Rajib ]
   pull_request:
-    branches: 
-      - main
+    branches: [ main ]
 
 permissions:
   contents: write
-  checks: write
   pull-requests: write
 
 jobs:
-  cypress-run:
+  cypress:
     runs-on: ubuntu-latest
     environment: staging
 
@@ -29,66 +25,89 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: '18.18.2'
-      
+          node-version: 18
+
       - name: Install dependencies
         run: npm ci
 
-      - name: Setup PR Info (Push to Rajib)
-        if: github.event_name == 'push' && github.ref == 'refs/heads/Rajib'
+      - name: Set PR Number
         run: |
-          # Create PR if not exists. Ignore error if it does.
-          gh pr create --base main --head Rajib --title "Auto PR: Rajib to Main" --body "Automated Pull Request created by GitHub Actions." || echo "PR might already exist"
-          
-          # Get PR Number
-          PR_NUM=$(gh pr list --state open --head Rajib --base main --json number --jq '.[0].number')
-          echo "PR_NUMBER=$PR_NUM" >> $GITHUB_ENV
-          echo "Identified PR #$PR_NUM"
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            echo "PR_NUMBER=${{ github.event.pull_request.number }}" >> $GITHUB_ENV
+          elif [ "${{ github.ref }}" = "refs/heads/Rajib" ]; then
+            gh pr create --base main --head Rajib \
+              --title "Auto PR: Rajib → Main" \
+              --body "Automated PR from CI" || true
 
-      - name: Setup PR Info (Pull Request)
-        if: github.event_name == 'pull_request'
-        run: |
-          echo "PR_NUMBER=${{ github.event.pull_request.number }}" >> $GITHUB_ENV
+            PR=$(gh pr list --head Rajib --base main --state open --json number --jq '.[0].number')
+            echo "PR_NUMBER=$PR" >> $GITHUB_ENV
+          fi
 
-      - name: Clean Reports
+      - name: Clean reports
         run: npm run cleanup:reports
 
       - name: Run Cypress tests
-        id: cypress
+        id: tests
         run: npm run cy:run
+        continue-on-error: true
 
-      - name: Merge Reports (Always)
+      - name: Generate report
         if: always()
-        run: npm run merge:reports
+        run: |
+          npm run merge:reports
+          npm run generate:report
 
-      - name: Generate HTML Report (Always)
+      - name: Zip HTML report
         if: always()
-        run: npm run generate:report
+        run: |
+          # Ensure zip is installed
+          sudo apt-get update && sudo apt-get install -y zip
+          zip -r cypress-report.zip cypress/reports
 
-      - name: Upload Report Artifact (Always)
+      - name: Send email with HTML report
+        if: always()
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          username: ${{ secrets.EMAIL_USER }}
+          password: ${{ secrets.EMAIL_PASS }}
+          to: ${{ secrets.EMAIL_TO }}
+          from: GitHub CI <${{ secrets.EMAIL_USER }}>
+          subject: "Cypress Test Report - ${{ steps.tests.outcome }}"
+          body: |
+            Cypress test execution is complete.
+
+            Status: ${{ steps.tests.outcome }}
+            Repo: ${{ github.repository }}
+            Run: #${{ github.run_number }}
+
+            HTML report is attached.
+          attachments: cypress-report.zip
+
+      - name: Upload report artifact
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: cypress-report
           path: cypress/reports
-          retention-days: 30
 
-      - name: Merge PR on Success
-        if: success() && env.PR_NUMBER != ''
+      - name: Merge PR on success
+        if: steps.tests.outcome == 'success' && env.PR_NUMBER != ''
         run: |
-          echo "Test Passed. Merging PR #$PR_NUMBER..."
           gh pr merge $PR_NUMBER --merge --delete-branch
-          echo "Merge complete."
 
-      - name: Close PR on Failure
-        if: failure() && env.PR_NUMBER != ''
+      - name: Close PR on failure
+        if: steps.tests.outcome == 'failure' && env.PR_NUMBER != ''
         run: |
-          echo "Tests Failed. Closing PR #$PR_NUMBER..."
-          gh pr close $PR_NUMBER --comment "Cypress tests failed. Auto-closing PR."
-          echo "PR Closed."
+          gh pr close $PR_NUMBER \
+            --comment "❌ Cypress tests failed. Auto-closing PR."
+
+      - name: Fail job if tests failed
+        if: steps.tests.outcome == 'failure'
+        run: exit 1
