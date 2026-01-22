@@ -3,6 +3,7 @@ import Utils from "../support/utils/utils"
 import AddToCart from "../pages/addToCart"
 import Cart from "../pages/cart"
 import Checkout from "../pages/checkout"
+import "allure-cypress";
 
 
 const loginData= new Login()

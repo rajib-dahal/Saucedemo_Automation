@@ -74,7 +74,15 @@ jobs:
           path: cypress/reports
           retention-days: 30
 
-      - name: Send email with HTML report
+      - name: Generate Allure Report
+        if: always()
+        run: |
+          npm run allure:generate
+          # Combine Allure folder into a single HTML file
+          npx -y allure-single-html-file-js -d cypress/reports/allure-report
+          mv cypress/reports/allure-report/complete.html cypress/reports/allure-report.html
+
+      - name: Send email with Reports
         if: always()
         uses: dawidd6/action-send-mail@v3
         with:
@@ -97,9 +105,11 @@ jobs:
             Branch: ${{ github.ref_name }}
             Run: #${{ github.run_number }}
 
-            HTML report is attached.
+            Attached Reports:
+            1. Mochawesome Report
+            2. Allure Report
 
-          attachments: cypress/reports/final-report.html
+          attachments: cypress/reports/final-report.html,cypress/reports/allure-report.html
 
       # ---------- PR ACTIONS ----------
       - name: Merge PR on success
