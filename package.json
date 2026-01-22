@@ -18,7 +18,7 @@
     "cypress:run:prod": "cross-env NODE_ENV=production npx cypress run",
     "allure:report": "allure generate allure-results --clean -o cypress/reports/allure-report && allure open cypress/reports/allure-report",
     "allure:generate": "allure generate allure-results --clean -o cypress/reports/allure-report",
-    "allure:combine": "allure-single-html-file-js -d cypress/reports/allure-report"
+    "allure:combine": "node node_modules/allure-single-html-file-js/combine.js cypress/reports/allure-report"
   },
   "repository": {
     "type": "git",
