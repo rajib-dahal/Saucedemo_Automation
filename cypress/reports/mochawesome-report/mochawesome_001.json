@@ -5,9 +5,9 @@
     "passes": 2,
     "pending": 0,
     "failures": 0,
-    "start": "2025-12-14T05:22:42.143Z",
-    "end": "2025-12-14T05:22:45.735Z",
-    "duration": 3592,
+    "start": "2026-01-22T09:33:10.202Z",
+    "end": "2026-01-22T09:33:14.457Z",
+    "duration": 4255,
     "testsRegistered": 2,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "34efdc34-aa95-4652-a240-369c95c24534",
+      "uuid": "416bbdbc-4be2-4ce5-9708-e740064807a3",
       "title": "",
       "fullFile": "cypress\\e2e\\cart.cy.js",
       "file": "cypress\\e2e\\cart.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "bfd855e9-e831-4631-8b9c-3eb0830853cc",
+          "uuid": "4e23d435-c61e-4ffe-ac33-1c9d0812a02e",
           "title": "CART",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "TC-CART-001: To verify item is removed from cart after clicking cancel button",
               "fullTitle": "CART TC-CART-001: To verify item is removed from cart after clicking cancel button",
               "timedOut": null,
-              "duration": 2125,
+              "duration": 2241,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -47,8 +47,8 @@
               "context": null,
               "code": "addToCartData.clickAddToCartButton();\nutility.assertElementText('#remove-sauce-labs-backpack', 'Remove');\ncartData.clickCartIcon();\nutility.assertUrl('https://www.saucedemo.com/cart.html');\ncartData.clickCartRemoveButton();",
               "err": {},
-              "uuid": "8aa63d0b-8002-4b19-9fe7-860455fc167f",
-              "parentUUID": "bfd855e9-e831-4631-8b9c-3eb0830853cc",
+              "uuid": "8ebd7fbf-090e-4184-8968-4edb21f1dd84",
+              "parentUUID": "4e23d435-c61e-4ffe-ac33-1c9d0812a02e",
               "isHook": false,
               "skipped": false
             },
@@ -56,7 +56,7 @@
               "title": "TC-CART-001: To verify user is directed to home page after clicking continue shopping button",
               "fullTitle": "CART TC-CART-001: To verify user is directed to home page after clicking continue shopping button",
               "timedOut": null,
-              "duration": 1389,
+              "duration": 1771,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -65,21 +65,21 @@
               "context": null,
               "code": "addToCartData.clickAddToCartButton();\nutility.assertElementText('#remove-sauce-labs-backpack', 'Remove');\ncartData.clickCartIcon();\nutility.assertUrl('https://www.saucedemo.com/cart.html');\ncartData.clickCartContinueButton();\nutility.assertUrl('https://www.saucedemo.com/inventory.html');",
               "err": {},
-              "uuid": "5a742482-f3ff-4a0e-aaef-5995046f9959",
-              "parentUUID": "bfd855e9-e831-4631-8b9c-3eb0830853cc",
+              "uuid": "4f3a3937-4ca5-40ce-8c69-34c8a6798303",
+              "parentUUID": "4e23d435-c61e-4ffe-ac33-1c9d0812a02e",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "8aa63d0b-8002-4b19-9fe7-860455fc167f",
-            "5a742482-f3ff-4a0e-aaef-5995046f9959"
+            "8ebd7fbf-090e-4184-8968-4edb21f1dd84",
+            "4f3a3937-4ca5-40ce-8c69-34c8a6798303"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 3514,
+          "duration": 4012,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

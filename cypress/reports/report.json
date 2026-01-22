@@ -1,24 +1,24 @@
 {
   "stats": {
-    "suites": 5,
-    "tests": 12,
-    "passes": 12,
+    "suites": 7,
+    "tests": 14,
+    "passes": 14,
     "pending": 0,
     "failures": 0,
-    "testsRegistered": 12,
+    "testsRegistered": 14,
     "passPercent": 100,
     "pendingPercent": 0,
     "other": 0,
     "hasOther": false,
     "skipped": 0,
     "hasSkipped": false,
-    "start": "2025-12-14T05:22:32.737Z",
-    "end": "2025-12-14T05:23:01.621Z",
-    "duration": 28884
+    "start": "2026-01-22T09:32:56.089Z",
+    "end": "2026-01-22T09:33:51.117Z",
+    "duration": 55028
   },
   "results": [
     {
-      "uuid": "34efdc34-aa95-4652-a240-369c95c24534",
+      "uuid": "416bbdbc-4be2-4ce5-9708-e740064807a3",
       "title": "",
       "fullFile": "cypress\\e2e\\cart.cy.js",
       "file": "cypress\\e2e\\cart.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "bfd855e9-e831-4631-8b9c-3eb0830853cc",
+          "uuid": "4e23d435-c61e-4ffe-ac33-1c9d0812a02e",
           "title": "CART",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "TC-CART-001: To verify item is removed from cart after clicking cancel button",
               "fullTitle": "CART TC-CART-001: To verify item is removed from cart after clicking cancel button",
               "timedOut": null,
-              "duration": 2125,
+              "duration": 2241,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -47,8 +47,8 @@
               "context": null,
               "code": "addToCartData.clickAddToCartButton();\nutility.assertElementText('#remove-sauce-labs-backpack', 'Remove');\ncartData.clickCartIcon();\nutility.assertUrl('https://www.saucedemo.com/cart.html');\ncartData.clickCartRemoveButton();",
               "err": {},
-              "uuid": "8aa63d0b-8002-4b19-9fe7-860455fc167f",
-              "parentUUID": "bfd855e9-e831-4631-8b9c-3eb0830853cc",
+              "uuid": "8ebd7fbf-090e-4184-8968-4edb21f1dd84",
+              "parentUUID": "4e23d435-c61e-4ffe-ac33-1c9d0812a02e",
               "isHook": false,
               "skipped": false
             },
@@ -56,7 +56,7 @@
               "title": "TC-CART-001: To verify user is directed to home page after clicking continue shopping button",
               "fullTitle": "CART TC-CART-001: To verify user is directed to home page after clicking continue shopping button",
               "timedOut": null,
-              "duration": 1389,
+              "duration": 1771,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -65,21 +65,21 @@
               "context": null,
               "code": "addToCartData.clickAddToCartButton();\nutility.assertElementText('#remove-sauce-labs-backpack', 'Remove');\ncartData.clickCartIcon();\nutility.assertUrl('https://www.saucedemo.com/cart.html');\ncartData.clickCartContinueButton();\nutility.assertUrl('https://www.saucedemo.com/inventory.html');",
               "err": {},
-              "uuid": "5a742482-f3ff-4a0e-aaef-5995046f9959",
-              "parentUUID": "bfd855e9-e831-4631-8b9c-3eb0830853cc",
+              "uuid": "4f3a3937-4ca5-40ce-8c69-34c8a6798303",
+              "parentUUID": "4e23d435-c61e-4ffe-ac33-1c9d0812a02e",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "8aa63d0b-8002-4b19-9fe7-860455fc167f",
-            "5a742482-f3ff-4a0e-aaef-5995046f9959"
+            "8ebd7fbf-090e-4184-8968-4edb21f1dd84",
+            "4f3a3937-4ca5-40ce-8c69-34c8a6798303"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 3514,
+          "duration": 4012,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
@@ -95,7 +95,7 @@
       "_timeout": 2000
     },
     {
-      "uuid": "6bc2a8ed-190d-4c08-a790-4d441359b138",
+      "uuid": "52217fca-6925-4907-9196-b046ce13a15e",
       "title": "",
       "fullFile": "cypress\\e2e\\checkout.cy.js",
       "file": "cypress\\e2e\\checkout.cy.js",
@@ -104,7 +104,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "e4eafdfa-0510-4d56-8185-45d756145e44",
+          "uuid": "c5e5ad62-38c7-4c40-affc-93b2803feb1e",
           "title": "CHECKOUT",
           "fullFile": "",
           "file": "",
@@ -115,7 +115,7 @@
               "title": "TC-CHECKOUT-001: To verify checkout button is working",
               "fullTitle": "CHECKOUT TC-CHECKOUT-001: To verify checkout button is working",
               "timedOut": null,
-              "duration": 1973,
+              "duration": 3214,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -124,8 +124,8 @@
               "context": null,
               "code": "checkout.clickCheckoutButton();\nutility.assertUrl('https://www.saucedemo.com/checkout-step-one.html');",
               "err": {},
-              "uuid": "fa7aef70-461b-499d-91c8-5e1ef15b860a",
-              "parentUUID": "e4eafdfa-0510-4d56-8185-45d756145e44",
+              "uuid": "76a01794-5b11-4ee8-9db4-329d00eabb2a",
+              "parentUUID": "c5e5ad62-38c7-4c40-affc-93b2803feb1e",
               "isHook": false,
               "skipped": false
             },
@@ -133,7 +133,7 @@
               "title": "TC-CHECKOUT-002: To verify user can checkout with vlaid information",
               "fullTitle": "CHECKOUT TC-CHECKOUT-002: To verify user can checkout with vlaid information",
               "timedOut": null,
-              "duration": 2072,
+              "duration": 2616,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -142,21 +142,21 @@
               "context": null,
               "code": "checkout.clickCheckoutButton();\ncheckout.checkoutForm();",
               "err": {},
-              "uuid": "8e24b2d1-2725-49b7-8370-23bbe21aee00",
-              "parentUUID": "e4eafdfa-0510-4d56-8185-45d756145e44",
+              "uuid": "d872d5e8-3795-4f53-843a-4c595b62f5f1",
+              "parentUUID": "c5e5ad62-38c7-4c40-affc-93b2803feb1e",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "fa7aef70-461b-499d-91c8-5e1ef15b860a",
-            "8e24b2d1-2725-49b7-8370-23bbe21aee00"
+            "76a01794-5b11-4ee8-9db4-329d00eabb2a",
+            "d872d5e8-3795-4f53-843a-4c595b62f5f1"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 4045,
+          "duration": 5830,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
@@ -172,7 +172,65 @@
       "_timeout": 2000
     },
     {
-      "uuid": "db1da829-5563-45b1-970b-7350a8e203a5",
+      "uuid": "d0879e1a-4682-442d-a2b7-99e6108d15c4",
+      "title": "",
+      "fullFile": "cypress\\e2e\\filter.cy.js",
+      "file": "cypress\\e2e\\filter.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "821b0ba7-5c74-49cb-80c5-1844ef3fd70c",
+          "title": "FILTER",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "TC-FILTER-001: To verify user can filter the products",
+              "fullTitle": "FILTER TC-FILTER-001: To verify user can filter the products",
+              "timedOut": null,
+              "duration": 3574,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Filter Low to High\nfilterData.filterByPriceLowToHigh();\n// Verify Low to High\ncy.get('.inventory_item_price').then($prices => {\n  const prices = [...$prices].map(el => parseFloat(el.innerText.replace('$', '')));\n  const sortedPrices = [...prices].sort((a, b) => a - b);\n  expect(prices).to.deep.equal(sortedPrices);\n});\n// Filter High to Low\nfilterData.filterByPriceHighToLow();\n// Verify High to Low\ncy.get('.inventory_item_price').then($prices => {\n  const prices = [...$prices].map(el => parseFloat(el.innerText.replace('$', '')));\n  const sortedPrices = [...prices].sort((a, b) => b - a);\n  expect(prices).to.deep.equal(sortedPrices);\n});\n// Filter Name A to Z\nfilterData.filterByNameAtoZ();\n// Verify Name A to Z\ncy.get('.inventory_item_name').then($names => {\n  const names = [...$names].map(el => el.innerText);\n  const sortedNames = [...names].sort();\n  expect(names).to.deep.equal(sortedNames);\n});\n// Filter Name Z to A\nfilterData.filterByNameZtoA();\n// Verify Name Z to A\ncy.get('.inventory_item_name').then($names => {\n  const names = [...$names].map(el => el.innerText);\n  const sortedNames = [...names].sort().reverse();\n  expect(names).to.deep.equal(sortedNames);\n});",
+              "err": {},
+              "uuid": "785fa4a5-912e-4c42-8155-7fb8a2f6f072",
+              "parentUUID": "821b0ba7-5c74-49cb-80c5-1844ef3fd70c",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "785fa4a5-912e-4c42-8155-7fb8a2f6f072"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 3574,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "face7c3b-da58-4350-b8fe-7c7d948b6c05",
       "title": "",
       "fullFile": "cypress\\e2e\\login.cy.js",
       "file": "cypress\\e2e\\login.cy.js",
@@ -181,7 +239,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "036034b7-5e58-4595-908a-a47a78fec39a",
+          "uuid": "ea83b57d-2d5f-4c49-bfe6-5868e357de67",
           "title": "LOGIN",
           "fullFile": "",
           "file": "",
@@ -192,7 +250,7 @@
               "title": "TC-LOGIN-001: To verify user can login with valid credentials",
               "fullTitle": "LOGIN TC-LOGIN-001: To verify user can login with valid credentials",
               "timedOut": null,
-              "duration": 1530,
+              "duration": 2569,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -201,8 +259,8 @@
               "context": null,
               "code": "loginData.login();",
               "err": {},
-              "uuid": "4e31def0-d3a7-4653-b0eb-eb88d8321526",
-              "parentUUID": "036034b7-5e58-4595-908a-a47a78fec39a",
+              "uuid": "42ac996d-8792-4cba-9dd8-90ce3374b65d",
+              "parentUUID": "ea83b57d-2d5f-4c49-bfe6-5868e357de67",
               "isHook": false,
               "skipped": false
             },
@@ -210,7 +268,7 @@
               "title": "TC-LOGIN-002: To verify user can login with only username",
               "fullTitle": "LOGIN TC-LOGIN-002: To verify user can login with only username",
               "timedOut": null,
-              "duration": 880,
+              "duration": 768,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -219,8 +277,8 @@
               "context": null,
               "code": "loginData.visit();\nloginData.typeLoginUsername();\nloginData.clickLoginButton();\nutility.assertErrorMessage('[data-test=\"error\"]', 'Epic sadface: Password is required');",
               "err": {},
-              "uuid": "528db375-c3d5-490c-a761-3fce1f043383",
-              "parentUUID": "036034b7-5e58-4595-908a-a47a78fec39a",
+              "uuid": "bc120b0a-0b97-49a7-8522-af66fa4d501a",
+              "parentUUID": "ea83b57d-2d5f-4c49-bfe6-5868e357de67",
               "isHook": false,
               "skipped": false
             },
@@ -228,7 +286,7 @@
               "title": "TC-LOGIN-003: To verify user can login with only password",
               "fullTitle": "LOGIN TC-LOGIN-003: To verify user can login with only password",
               "timedOut": null,
-              "duration": 633,
+              "duration": 948,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -237,8 +295,8 @@
               "context": null,
               "code": "loginData.visit();\nloginData.typeLoginPassword();\nloginData.clickLoginButton();\nutility.assertErrorMessage('[data-test=\"error\"]', 'Epic sadface: Username is required');",
               "err": {},
-              "uuid": "85756010-8178-4136-b179-81969cd842a4",
-              "parentUUID": "036034b7-5e58-4595-908a-a47a78fec39a",
+              "uuid": "5b2f637d-a49f-46cb-889f-3f6f274a7771",
+              "parentUUID": "ea83b57d-2d5f-4c49-bfe6-5868e357de67",
               "isHook": false,
               "skipped": false
             },
@@ -246,7 +304,7 @@
               "title": "TC-LOGIN-004: To verify user can login with empty fields",
               "fullTitle": "LOGIN TC-LOGIN-004: To verify user can login with empty fields",
               "timedOut": null,
-              "duration": 438,
+              "duration": 317,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -255,23 +313,23 @@
               "context": null,
               "code": "loginData.visit();\nloginData.clickLoginButton();\nutility.assertErrorMessage('[data-test=\"error\"]', 'Epic sadface: Username is required');",
               "err": {},
-              "uuid": "7db44c1a-5f39-412e-bb8c-29c51e0df2bb",
-              "parentUUID": "036034b7-5e58-4595-908a-a47a78fec39a",
+              "uuid": "564773ca-3166-4890-bfe7-9c10735666bc",
+              "parentUUID": "ea83b57d-2d5f-4c49-bfe6-5868e357de67",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "4e31def0-d3a7-4653-b0eb-eb88d8321526",
-            "528db375-c3d5-490c-a761-3fce1f043383",
-            "85756010-8178-4136-b179-81969cd842a4",
-            "7db44c1a-5f39-412e-bb8c-29c51e0df2bb"
+            "42ac996d-8792-4cba-9dd8-90ce3374b65d",
+            "bc120b0a-0b97-49a7-8522-af66fa4d501a",
+            "5b2f637d-a49f-46cb-889f-3f6f274a7771",
+            "564773ca-3166-4890-bfe7-9c10735666bc"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 3481,
+          "duration": 4602,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
@@ -287,7 +345,7 @@
       "_timeout": 2000
     },
     {
-      "uuid": "0e33191b-6384-4cab-b4dc-48fd405e2dcf",
+      "uuid": "ab294076-ce9f-4980-b2b4-a8a5fdca320b",
       "title": "",
       "fullFile": "cypress\\e2e\\logout.cy.js",
       "file": "cypress\\e2e\\logout.cy.js",
@@ -296,7 +354,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "c9a128f0-0bff-44a5-bbf9-bb8a463a28ce",
+          "uuid": "9d7293b8-0c90-4d94-8139-c79237e6cae0",
           "title": "Logout",
           "fullFile": "",
           "file": "",
@@ -307,7 +365,7 @@
               "title": "TC-LOGOUT-001: To verify user can logout",
               "fullTitle": "Logout TC-LOGOUT-001: To verify user can logout",
               "timedOut": null,
-              "duration": 2196,
+              "duration": 2736,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -316,20 +374,20 @@
               "context": null,
               "code": "logoutData.logout();\nutility.assertUrl('https://www.saucedemo.com/');",
               "err": {},
-              "uuid": "d2cabd66-4225-4b6e-a367-1edb47c8e4d5",
-              "parentUUID": "c9a128f0-0bff-44a5-bbf9-bb8a463a28ce",
+              "uuid": "76dfcc47-9c48-41ad-92bf-5c6cf5d3eeaa",
+              "parentUUID": "9d7293b8-0c90-4d94-8139-c79237e6cae0",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "d2cabd66-4225-4b6e-a367-1edb47c8e4d5"
+            "76dfcc47-9c48-41ad-92bf-5c6cf5d3eeaa"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 2196,
+          "duration": 2736,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
@@ -345,7 +403,65 @@
       "_timeout": 2000
     },
     {
-      "uuid": "b0380c72-a43d-46f9-aeb9-f0daa16d486f",
+      "uuid": "28fa4f97-544a-4635-9cc0-93229182e1d3",
+      "title": "",
+      "fullFile": "cypress\\e2e\\responsive.cy.js",
+      "file": "cypress\\e2e\\responsive.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "a2f6ac9c-afcb-492a-9fce-48bc4c698ec4",
+          "title": "responsive",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "TC-RES-001: To verify website is reponsive",
+              "fullTitle": "responsive TC-RES-001: To verify website is reponsive",
+              "timedOut": null,
+              "duration": 2257,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.viewport('iphone-6');\ncy.contains('Swag Labs').should('be.visible');\ncy.get('#react-burger-menu-btn').should('be.visible');\ncy.get('.inventory_list').should('be.visible');",
+              "err": {},
+              "uuid": "8cb4ab37-0522-4fd7-abd1-8d5c02adc2df",
+              "parentUUID": "a2f6ac9c-afcb-492a-9fce-48bc4c698ec4",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "8cb4ab37-0522-4fd7-abd1-8d5c02adc2df"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2257,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "35885d3e-b5e3-41ec-a330-162b15e17160",
       "title": "",
       "fullFile": "cypress\\e2e\\addToCart.cy.js",
       "file": "cypress\\e2e\\addToCart.cy.js",
@@ -354,7 +470,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "80c366e8-29a6-465a-85db-8b116ebd7bbd",
+          "uuid": "ae30a549-d227-4d3f-84e0-e9b8d2a30260",
           "title": "ADD_TO_CART",
           "fullFile": "",
           "file": "",
@@ -365,7 +481,7 @@
               "title": "TC-ADDTOCART-001: To verify add to cart button is working",
               "fullTitle": "ADD_TO_CART TC-ADDTOCART-001: To verify add to cart button is working",
               "timedOut": null,
-              "duration": 3201,
+              "duration": 4311,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -374,8 +490,8 @@
               "context": null,
               "code": "addToCartData.clickAddToCartButton();\nutility.assertElementText('#remove-sauce-labs-backpack', 'Remove');",
               "err": {},
-              "uuid": "a113848a-9065-468a-b48c-ca4e08260f37",
-              "parentUUID": "80c366e8-29a6-465a-85db-8b116ebd7bbd",
+              "uuid": "79cd7a78-6a6d-4076-a58d-803ea7806a2c",
+              "parentUUID": "ae30a549-d227-4d3f-84e0-e9b8d2a30260",
               "isHook": false,
               "skipped": false
             },
@@ -383,7 +499,7 @@
               "title": "TC-ADDTOCART-001: To verify cart icon is updated after item is added to cart",
               "fullTitle": "ADD_TO_CART TC-ADDTOCART-001: To verify cart icon is updated after item is added to cart",
               "timedOut": null,
-              "duration": 2247,
+              "duration": 3177,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -392,8 +508,8 @@
               "context": null,
               "code": "addToCartData.updateCart();",
               "err": {},
-              "uuid": "a1271a5b-f5a0-4ab7-a05d-7f712d40d945",
-              "parentUUID": "80c366e8-29a6-465a-85db-8b116ebd7bbd",
+              "uuid": "f3ca6099-9bb9-4209-8022-afef658757dd",
+              "parentUUID": "ae30a549-d227-4d3f-84e0-e9b8d2a30260",
               "isHook": false,
               "skipped": false
             },
@@ -401,7 +517,7 @@
               "title": "TC-ADDTOCART-001: To verify user can add product from product page",
               "fullTitle": "ADD_TO_CART TC-ADDTOCART-001: To verify user can add product from product page",
               "timedOut": null,
-              "duration": 1505,
+              "duration": 2342,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -410,22 +526,22 @@
               "context": null,
               "code": "addToCartData.addToCartProductPage();",
               "err": {},
-              "uuid": "aa8dd0e5-dc46-4f0e-b906-f266e9eec143",
-              "parentUUID": "80c366e8-29a6-465a-85db-8b116ebd7bbd",
+              "uuid": "7669e495-7f58-4055-9163-6e89b756afd0",
+              "parentUUID": "ae30a549-d227-4d3f-84e0-e9b8d2a30260",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "a113848a-9065-468a-b48c-ca4e08260f37",
-            "a1271a5b-f5a0-4ab7-a05d-7f712d40d945",
-            "aa8dd0e5-dc46-4f0e-b906-f266e9eec143"
+            "79cd7a78-6a6d-4076-a58d-803ea7806a2c",
+            "f3ca6099-9bb9-4209-8022-afef658757dd",
+            "7669e495-7f58-4055-9163-6e89b756afd0"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 6953,
+          "duration": 9830,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

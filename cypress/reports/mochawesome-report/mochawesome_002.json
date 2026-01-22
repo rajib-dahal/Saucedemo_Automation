@@ -5,9 +5,9 @@
     "passes": 2,
     "pending": 0,
     "failures": 0,
-    "start": "2025-12-14T05:22:47.758Z",
-    "end": "2025-12-14T05:22:51.876Z",
-    "duration": 4118,
+    "start": "2026-01-22T09:33:17.903Z",
+    "end": "2026-01-22T09:33:24.064Z",
+    "duration": 6161,
     "testsRegistered": 2,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "6bc2a8ed-190d-4c08-a790-4d441359b138",
+      "uuid": "52217fca-6925-4907-9196-b046ce13a15e",
       "title": "",
       "fullFile": "cypress\\e2e\\checkout.cy.js",
       "file": "cypress\\e2e\\checkout.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "e4eafdfa-0510-4d56-8185-45d756145e44",
+          "uuid": "c5e5ad62-38c7-4c40-affc-93b2803feb1e",
           "title": "CHECKOUT",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "TC-CHECKOUT-001: To verify checkout button is working",
               "fullTitle": "CHECKOUT TC-CHECKOUT-001: To verify checkout button is working",
               "timedOut": null,
-              "duration": 1973,
+              "duration": 3214,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -47,8 +47,8 @@
               "context": null,
               "code": "checkout.clickCheckoutButton();\nutility.assertUrl('https://www.saucedemo.com/checkout-step-one.html');",
               "err": {},
-              "uuid": "fa7aef70-461b-499d-91c8-5e1ef15b860a",
-              "parentUUID": "e4eafdfa-0510-4d56-8185-45d756145e44",
+              "uuid": "76a01794-5b11-4ee8-9db4-329d00eabb2a",
+              "parentUUID": "c5e5ad62-38c7-4c40-affc-93b2803feb1e",
               "isHook": false,
               "skipped": false
             },
@@ -56,7 +56,7 @@
               "title": "TC-CHECKOUT-002: To verify user can checkout with vlaid information",
               "fullTitle": "CHECKOUT TC-CHECKOUT-002: To verify user can checkout with vlaid information",
               "timedOut": null,
-              "duration": 2072,
+              "duration": 2616,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -65,21 +65,21 @@
               "context": null,
               "code": "checkout.clickCheckoutButton();\ncheckout.checkoutForm();",
               "err": {},
-              "uuid": "8e24b2d1-2725-49b7-8370-23bbe21aee00",
-              "parentUUID": "e4eafdfa-0510-4d56-8185-45d756145e44",
+              "uuid": "d872d5e8-3795-4f53-843a-4c595b62f5f1",
+              "parentUUID": "c5e5ad62-38c7-4c40-affc-93b2803feb1e",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "fa7aef70-461b-499d-91c8-5e1ef15b860a",
-            "8e24b2d1-2725-49b7-8370-23bbe21aee00"
+            "76a01794-5b11-4ee8-9db4-329d00eabb2a",
+            "d872d5e8-3795-4f53-843a-4c595b62f5f1"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 4045,
+          "duration": 5830,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

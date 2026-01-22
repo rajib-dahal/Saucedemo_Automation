@@ -1,4 +1,5 @@
 const { defineConfig } = require("cypress");
+import { allureCypress } from "allure-cypress/reporter";
 const path = require("path");
 const dotenv = require("dotenv");
 
@@ -39,6 +40,10 @@ module.exports = defineConfig({
         console.warn("⚠️  Warning: BASE_URL is not set in environment or .env file. using default https://www.saucedemo.com/");
         config.baseUrl = "https://www.saucedemo.com/";
       }
+
+      allureCypress(on, config, {
+        resultsDir: "allure-results",
+      });
 
       return config;
     },

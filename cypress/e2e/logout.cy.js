@@ -1,6 +1,7 @@
 import Login from "../pages/login"
 import Logout from "../pages/logout";
 import Utils from "../support/utils/utils";
+import "allure-cypress";
 
 const loginData= new Login()
 const logoutData= new Logout()

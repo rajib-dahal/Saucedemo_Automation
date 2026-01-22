@@ -1,6 +1,7 @@
 import Login from "../pages/login"
 import Utils from "../support/utils/utils";
 import Filter from "../pages/filter";
+import "allure-cypress";
 
 const loginData= new Login()
 const utility =new Utils()
