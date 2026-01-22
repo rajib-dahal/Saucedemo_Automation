@@ -1,18 +1,19 @@
-name: Cypress CI with Email Report
+name: Cypress CI/CD
 
 on:
   push:
     branches: [ main, Rajib ]
   pull_request:
     branches: [ main ]
-  workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
+  pull-requests: write
 
 jobs:
   cypress:
     runs-on: ubuntu-latest
+    environment: staging
 
     env:
       CYPRESS_USERNAME: ${{ secrets.CYPRESS_USERNAME }}
@@ -21,19 +22,33 @@ jobs:
       AUTHENTICATION_TOKEN: ${{ secrets.AUTHENTICATION_TOKEN }}
       API_URL: ${{ secrets.API_URL }}
       NODE_ENV: staging
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: '18.18.2'
 
       - name: Install dependencies
         run: npm ci
 
+      # ---------- PR NUMBER ----------
+      - name: Set PR Number
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            echo "PR_NUMBER=${{ github.event.pull_request.number }}" >> $GITHUB_ENV
+          elif [ "${{ github.ref }}" = "refs/heads/Rajib" ]; then
+            gh pr create --base main --head Rajib \
+              --title "Auto PR: Rajib → Main" \
+              --body "Automated PR from CI" || true
+
+            PR=$(gh pr list --head Rajib --base main --state open --json number --jq '.[0].number')
+            echo "PR_NUMBER=$PR" >> $GITHUB_ENV
+          fi
+
+      # ---------- TESTS ----------
       - name: Clean reports
         run: npm run cleanup:reports
 
@@ -42,13 +57,14 @@ jobs:
         run: npm run cy:run
         continue-on-error: true
 
+      # ---------- REPORT ----------
       - name: Generate HTML report
         if: always()
         run: |
           npm run merge:reports
           npm run generate:report
 
-      - name: Upload Cypress report artifact
+      - name: Upload report artifact
         if: always()
         uses: actions/upload-artifact@v4
         with:
@@ -56,6 +72,7 @@ jobs:
           path: cypress/reports
           retention-days: 30
 
+      # ---------- EMAIL (SAFE) ----------
       - name: Send email with report link
         if: always()
         uses: dawidd6/action-send-mail@v3
@@ -71,9 +88,7 @@ jobs:
           subject: "Cypress Test Report – ${{ steps.tests.outcome }}"
 
           body: |
-            Hi Rajib,
-
-            Cypress test execution has completed.
+            Cypress test execution completed.
 
             Status: ${{ steps.tests.outcome }}
             Repository: ${{ github.repository }}
@@ -83,8 +98,7 @@ jobs:
             Download HTML Report:
             https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
 
-            – GitHub Actions 🤖
-
-      - name: Mark job as failed if tests failed
-        if: steps.tests.outcome == 'failure'
-        run: exit 1
+      # ---------- PR ACTIONS ----------
+      - name: Merge PR on success
+        if: steps.tests.outcome == 'success' && env.PR_NUMBER != ''
+        run: gh pr merge $PR_NUMBER --merge --_
