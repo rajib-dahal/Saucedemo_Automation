@@ -240,7 +240,7 @@
     "cy:run": "npx cypress run",
     "cleanup:reports": "rimraf cypress/reports",
     "merge:reports": "npx mochawesome-merge cypress/reports/mochawesome-report/*.json -o cypress/reports/report.json",
-    "generate:report": "npx marge cypress/reports/report.json -f final-report -o cypress/reports",
+    "generate:report": "npx marge cypress/reports/report.json -f final-report -o cypress/reports --inline",
     "report:all": "npm run cleanup:reports && npm run cy:run && npm run merge:reports && npm run generate:report",
     "cypress:open:dev": "cross-env NODE_ENV=development npx cypress open",
     "cypress:open:staging": "cross-env NODE_ENV=staging npx cypress open",
