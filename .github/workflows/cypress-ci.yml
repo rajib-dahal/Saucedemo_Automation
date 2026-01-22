@@ -40,10 +40,12 @@ jobs:
           if [ "${{ github.event_name }}" = "pull_request" ]; then
             echo "PR_NUMBER=${{ github.event.pull_request.number }}" >> $GITHUB_ENV
           elif [ "${{ github.ref }}" = "refs/heads/Rajib" ]; then
+            # Create PR if not exists
             gh pr create --base main --head Rajib \
               --title "Auto PR: Rajib → Main" \
               --body "Automated PR from CI" || true
 
+            # Capture PR Number
             PR=$(gh pr list --head Rajib --base main --state open --json number --jq '.[0].number')
             echo "PR_NUMBER=$PR" >> $GITHUB_ENV
           fi
@@ -78,13 +80,13 @@ jobs:
           sudo apt-get update && sudo apt-get install -y zip
           zip -r cypress-report.zip cypress/reports
 
-      - name: Send email with HTML report attachment
+      - name: Send email with HTML report
         if: always()
         uses: dawidd6/action-send-mail@v3
         with:
-          server_address: smtp.office365.com
-          server_port: 587
-          secure: false
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
 
           username: ${{ secrets.EMAIL_USER }}
           password: ${{ secrets.EMAIL_PASS }}
@@ -105,8 +107,20 @@ jobs:
 
           attachments: cypress-report.zip
 
-
       # ---------- PR ACTIONS ----------
       - name: Merge PR on success
         if: steps.tests.outcome == 'success' && env.PR_NUMBER != ''
-        run: gh pr merge $PR_NUMBER --merge --_
+        run: |
+          gh pr merge $PR_NUMBER --merge --delete-branch
+          echo "✅ PR Merged"
+
+      - name: Close PR on failure
+        if: steps.tests.outcome == 'failure' && env.PR_NUMBER != ''
+        run: |
+          gh pr close $PR_NUMBER \
+            --comment "❌ Cypress tests failed. Auto-closing PR."
+          echo "❌ PR Closed"
+
+      - name: Fail job if tests failed
+        if: steps.tests.outcome == 'failure'
+        run: exit 1
