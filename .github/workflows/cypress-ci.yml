@@ -5,9 +5,9 @@ on:
     branches: [ main, Rajib ]
   pull_request:
     branches: [ main ]
-  schedule:
-    - cron: '*/10 * * * *'
-  workflow_dispatch:
+  # schedule:
+  #   - cron: '*/10 * * * *'
+  # workflow_dispatch:
 
 permissions:
   contents: write
